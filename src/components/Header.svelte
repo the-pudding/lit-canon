@@ -4,13 +4,12 @@
 
 <header>
 	<div class="wordmark">
-		<a href="https://pudding.cool" aria-label="The Pudding">{@html wordmark}</a>
+		<a href="https://pudding.cool" aria-label="The Pudding">The Pudding</a>
 	</div>
 </header>
 
 <style>
 	.wordmark {
-		max-width: 10em;
 		margin: 0 auto;
 		padding: 1em 0;
 	}
@@ -19,6 +18,10 @@
 		border: none;
 		display: block;
 		color: var(--color-fg);
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 18px;
+		text-align: center;
 	}
 
 	.wordmark a:hover {

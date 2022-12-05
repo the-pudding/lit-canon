@@ -13,7 +13,7 @@
 </script>
 
 <div id="demo">
-	<h1>Demo</h1>
+	<h1>The Pudding</h1>
 	<DemoLink />
 	<DemoImg />
 	<DemoButtonSet />
@@ -28,6 +28,10 @@
 </div>
 
 <style>
+
+	h1 {
+		font-family: 'EB Garamond', serif;
+	}
 	#demo {
 		max-width: 40rem;
 		padding: 16px;

@@ -4,6 +4,8 @@
 	export let legendPosition = "top";
 	export let labelClass = "";
 	export let disabled = false;
+	export let rankingValue = 0;
+	export let ranking = false;
 	export let value = options.length ? options[0].value : "";
 
 	const id = `legend-${Math.floor(Math.random() * 1000000)}`;
@@ -14,10 +16,16 @@
 		val: d.value,
 		slug: makeSlug(d.value)
 	}));
+
 	$: isTop = legendPosition === "top";
+
+	$: if(ranking) {
+		value = rankingValue
+	};
+
 </script>
 
-<div class="button-set">
+<div class="button-set" class:ranking>
 	<div
 		id={`group-${id}`}
 		class="group"
@@ -39,7 +47,7 @@
 						bind:group={value}
 					/>
 					<label class="option {labelClass}" for={`${id}-${option.slug}`}>
-						{option.label || option.value}
+						{@html option.label || option.value}
 					</label>
 				</div>
 			{/each}
@@ -48,6 +56,41 @@
 </div>
 
 <style>
+
+	.ranking label{
+		font-family: "Inter";
+	}
+
+	.ranking input[type="radio"] + label {
+		color: rgba(0,0,0,.3);
+		padding: .5em;
+	}
+
+	.ranking input[type="radio"]:checked + label:before, .ranking input[type="radio"]:checked:hover + label:before {
+		display: none;
+	}
+
+	.ranking input[type="radio"]:checked + label,
+	.ranking input[type="radio"]:checked:hover + label {
+		color: black;
+		border: none;
+		background-color: white;
+	}
+
+	.ranking.button-set {
+		width: 100%;
+	}
+
+	.ranking .group {
+		width: 100%;
+	}
+
+	.ranking .options {
+        justify-content: space-between;
+        width: calc(100% - 25px);
+		margin: 0 auto;
+    }
+
 	.button-set {
 		display: inline-block;
 		margin-bottom: 4px;
@@ -69,7 +112,10 @@
 
 	.legend {
 		padding-right: 0.5em;
-		font-size: 1em;
+		font-family: "Inter";
+		font-weight: 600;
+		font-size: 12px;
+		color: rgba(0,0,0,.3);
 	}
 
 	.options {
@@ -81,13 +127,12 @@
 		user-select: none;
 		line-height: 1;
 		margin: 0;
-		padding: 0.5em;
+		padding: 0.2em;
 		border-radius: 0;
-		border: 2px solid var(--color-gray-900);
+		font-size: 18px;
 		outline: none;
 		cursor: pointer;
 		font-family: inherit;
-		font-size: 1em;
 		display: inline-block;
 	}
 
@@ -96,11 +141,11 @@
 	}
 
 	.option:first-of-type label {
-		border-radius: 4px 0 0 4px;
+		/* border-radius: 4px 0 0 4px; */
 	}
 
 	.option:last-of-type label {
-		border-radius: 0 4px 4px 0;
+		/* border-radius: 0 4px 4px 0; */
 	}
 
 	.option + .option > label {
@@ -108,27 +153,42 @@
 	}
 
 	input[type="radio"] + label {
-		background: var(--color-white);
+		/* background: var(--color-white); */
 		color: var(--color-gray-900);
 	}
 
 	input[type="radio"]:checked + label,
 	input[type="radio"]:checked:hover + label {
-		background: var(--color-gray-900);
-		color: var(--color-white);
+		border-bottom: 1px solid #B4B4B4;
+		position: relative;
+		/* background: var(--color-gray-900); */
+		/* color: var(--color-white); */
+	}
+
+	input[type="radio"]:checked + label:before, input[type="radio"]:checked:hover + label:before {
+		content: '';
+		position: absolute;
+		top: -5px;
+		left: 50%;
+		width: 0; 
+		height: 0; 
+		border-left: 3px solid transparent;
+		border-right: 3px solid transparent;
+		border-top: 5px solid #AC1919;
+		transform: translate(-50%,0);
 	}
 
 	input[type="radio"]:hover + label {
-		background: var(--color-gray-100);
+		/* background: var(--color-gray-100); */
 	}
 
 	input[type="radio"]:focus + label {
-		box-shadow: 0 0 4px 0 var(--color-focus);
+		/* box-shadow: 0 0 4px 0 var(--color-focus); */
 	}
 
 	input[type="radio"]:disabled + label {
-		color: var(--color-gray-700);
-		background: var(--color-gray-500);
+		/* color: var(--color-gray-700); */
+		/* background: var(--color-gray-500); */
 		cursor: not-allowed;
 	}
 </style>

@@ -4,7 +4,7 @@ body {
 	color: var(--color-fg, black);
 	line-height: 1.4;
 	font-family: var(--font-body, serif);
-	font-feature-settings: 'kern' 1, 'onum' 0, 'liga' 0, 'tnum' 1;
+	font-feature-settings: 'kern' 1, 'onum' 0, 'liga' 0, 'tnum' 0;
 	text-rendering: optimizeLegibility;
 	word-wrap: break-word;
 	-webkit-tap-highlight-color: transparent;

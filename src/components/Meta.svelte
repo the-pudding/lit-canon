@@ -3,7 +3,12 @@
 	export let description = "Description TK";
 	export let url = "https://pudding.cool";
 	export let keywords = "";
-	export let preloadFont = [];
+	export let preloadFont = [
+		"https://pudding.cool/assets/fonts/inter/Inter-Regular.woff2",
+		"https://pudding.cool/assets/fonts/inter/Inter-Bold.woff2",
+		"https://pudding.cool/assets/fonts/inter/Inter-Light.woff2",
+		"https://pudding.cool/assets/fonts/inter/Inter-Black.woff2"
+	];
 </script>
 
 <svelte:head>

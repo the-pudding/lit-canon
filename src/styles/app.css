@@ -7,7 +7,7 @@
 :root {
 	/* font */
 	--sans: "National 2 Web", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-	--serif: "Tiempos Text Web", Iowan Old Style, Times New Roman, Times, serif;
+	--serif: "EB Garamond", Iowan Old Style, Times New Roman, Times, serif;
 	--mono: Menlo, Consolas, Monaco, monospace;
 
 	/* z-index */
@@ -20,8 +20,8 @@
 	--border-radius: 2px;
 	--font-body: var(--serif);
 	--font-form: var(--sans);
-	--color-bg: var(--color-white);
-	--color-fg: var(--color-gray-900);
+	--color-bg: #FFFCE3;
+	--color-fg: #000;
 	--color-primary: var(--color-black);
 	--color-link: var(--color-black);
 	--color-focus: var(--color-red);
@@ -39,7 +39,7 @@
 	--1s: 1ms;
 }
 
-/* dark theme */
+/* dark theme
 @media screen and (prefers-color-scheme:dark) {
 	:root {
 		--color-bg: var(--color-gray-900);
@@ -59,11 +59,64 @@
 		--color-text-outline: var(--color-bg);
 	}
 }
-
+ */
 @media screen and (prefers-reduced-motion: no-preference) {
 	:root {
 		--1s: 1s;
 	}
+}
+
+html, body, main {
+	height: 100%;
+	overflow: hidden;
+}
+
+.hed {
+	font-size: 48px;
+	line-height: 1.3;
+	text-align: center;
+}
+
+.big {
+	font-size: 36px;
+	line-height: 1.3;
+}
+
+#content .popFirst {
+	transform: translate(-55%,100px) rotate(1deg);
+}
+
+#content {
+	/* max-width: 500px; */
+	margin: 0 auto;
+}
+
+.inter {
+	font-family: 'Inter';
+	font-size: 18px;
+}
+
+.main-swiper {
+	height: 100%;
+}
+
+.first-slide .big {
+	font-size: 44px;
+}
+
+.main-swiper .swiper {
+	height: 100%;
+}
+
+
+.swiper-slide p {
+	margin: 0 auto;
+	font-size: 20px;
+}
+
+p, span, h1, h2, h3, h4, h5, h6 {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;   /* Firefox */
 }
 
 h1 {
@@ -78,6 +131,11 @@ h3 {
 	font-size: var(--28px, 28px);
 }
 
+.center {
+	text-align: center;
+	display: block;
+}
+
 h4 {
 	font-size: var(--24px, 24px);
 }
@@ -89,3 +147,19 @@ h5 {
 h6 {
 	font-size: var(--20px, 20px);
 }
+
+.red {
+	color: #AC1919;
+}
+
+li {
+	margin-bottom: .5em;
+	list-style: disc;
+	margin-left: 2rem;
+}
+
+ul {
+	margin-top: 30px;
+}
+
+
