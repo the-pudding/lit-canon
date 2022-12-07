@@ -1,4 +1,12 @@
 <script>
+
+
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+
+
+
 	export let options = [];
 	export let legend = "";
 	export let legendPosition = "top";
@@ -7,6 +15,13 @@
 	export let rankingValue = 0;
 	export let ranking = false;
 	export let value = options.length ? options[0].value : "";
+
+
+	function sayHello(val) {
+		dispatch('message', {
+			text: val
+		});
+	}
 
 	const id = `legend-${Math.floor(Math.random() * 1000000)}`;
 	const makeSlug = (str = "") => `${str}`.toLowerCase().replace(/\W/g, "");
@@ -20,7 +35,7 @@
 	$: isTop = legendPosition === "top";
 
 	$: if(ranking) {
-		value = rankingValue
+		value = rankingValue - 1
 	};
 
 </script>
@@ -43,6 +58,7 @@
 						name="name-{id}"
 						class="sr-only"
 						value={option.value}
+						on:click={sayHello(option.value)}
 						{disabled}
 						bind:group={value}
 					/>

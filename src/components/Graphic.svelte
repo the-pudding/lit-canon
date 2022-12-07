@@ -9,9 +9,11 @@
     } from 'swiper/core';
     import { getContext } from "svelte";
     import 'swiper/css';
+    import { fade, slide, blur, fly } from 'svelte/transition';
     import { flip } from 'svelte/animate';
     import chartRank from "$svg/chart_rank.svg";
     import nytRank from "$svg/nyt_rank.svg";
+    import rankingData from "$data/data.csv";
 
 
 	import ButtonSet from "$components/helpers/ButtonSet.svelte";
@@ -35,16 +37,32 @@
     let readMoreVisible = false;
     let doubleTap;
     let slideLength;
+    let baseValue;
+    let filterUpdated = 0;
 
-    console.log(copy)
+    function handleRankChange(event) {
+        let activeSlide
+        filterUpdated = filterUpdated + 1;
+        swiper.slideTo(baseValue + event.detail.text - 1, 500)
+    }
 
-    let decadeOptions = ["&rsquo;80s","&rsquo;90s","&rsquo;00s"].map(d => {
-        return {"value":d};
-    });
+    function handleFilterChange(event) {
+        filterUpdated = filterUpdated + 1;
+        swiper.slideTo(baseValue, 500)
+    }
 
-    let genreOptions = ["Fiction","Non-fiction"].map(d => {
-        return {"value":d};
-    });
+    let decadeOptions = [
+        {"label":"&rsquo;80s","value":"198"},
+        {"label":"&rsquo;90s","value":"199"},
+        {"label":"&rsquo;00s","value":"200"}
+    ]
+
+    let genreOptions = [
+        {"label":"Fiction","value":"fiction"},
+        {"label":"Non-fiction","value":"nonfiction"}
+    ]
+
+    console.log(rankingData[0]["awards"].split(/\r?\n/));
 
     let countOptions = [1,2,3,4,5,6,7,8,9,10].map(d => {
         return {"value":d};
@@ -54,14 +72,18 @@
 
     let offset = {gap: bookHeight, book:0};
     let topTenActive = false;
-    let rankingValue;
-    let decadeValue;
-    let genreValue;
+    let rankingValue = 1;
+    let decadeValue = "198";
+    let genreValue = "fiction";
+    let dataRankings = [];
 
     let readMoreExampleTransform;
 
-    
+    $: dataRankings = rankingData.filter(d => {
+        return d.decade == decadeValue && d["type"] == genreValue
+    }).slice(0,10);
 
+    $: console.log(dataRankings,decadeValue,genreValue)
 
     $: transformHide = activeIndex
     //* (slideLength - 1) % 1
@@ -92,10 +114,10 @@
         filtersHidden = true;
     } else {
         filtersHidden = false;
-         let baseValue = copy.intro.length + copy.ranking.length;
+        baseValue = copy.intro.length + copy.ranking.length;
         let delta = activeIndex - baseValue;
         let slideInRanking = delta % 10;
-        rankingValue = slideInRanking + 1;
+         rankingValue = slideInRanking + 1;
         // let slideInRanking = activeIndex - copy.intro.length;
         // rankingValue = 10//+copy["ranking"][slideInRanking]["rank"].replace(/\D/g,'');
     }
@@ -132,6 +154,8 @@
 	};
 
     onInit = (e) => {
+        [swiper] = e.detail;
+        console.log(swiper);
         slideLength = e.detail[0].slides.length
     }
 
@@ -139,6 +163,7 @@
 	onMount(async () => {
         
         if(sliderEl){
+            console.log(slideEl)
         }
 
         onProgress = (e) => {
@@ -155,11 +180,20 @@
             const [swiper] = e.detail;
 
             activeIndex = swiper.activeIndex;
-
+            if(!filtersHidden) {
+                baseValue = copy.intro.length + copy.ranking.length;
+                let delta = activeIndex - baseValue;
+                let slideInRanking = delta % 10;
+                //console.log(slideInRanking)
+                rankingValue = slideInRanking;
+            }
             if(readMoreVisible) {
                 readMore();
             }
         }
+
+
+ 
 	});
 
 </script>
@@ -170,13 +204,13 @@
 
     <div class="header-wrapper filters" class:filtersHidden>
         <div class="filter">
-            <ButtonSet legend={"Decade"} legendPosition={"left"} options={decadeOptions} bind:decadeValue />
+            <ButtonSet on:message={handleFilterChange} legend={"Decade"} legendPosition={"left"} options={decadeOptions} bind:value={decadeValue} />
         </div>
         <div class="filter">
-            <ButtonSet legend={"Genre"} legendPosition={"left"} options={genreOptions} bind:genreValue />
+            <ButtonSet on:message={handleFilterChange} legend={"Genre"} legendPosition={"left"} options={genreOptions} bind:value={genreValue} />
         </div>
         <div class="ranking">
-            <ButtonSet legend={""} ranking={true} legendPosition={"left"} options={countOptions} bind:rankingValue />
+            <ButtonSet on:message={handleRankChange} legend={""} ranking={true} legendPosition={"left"} options={countOptions} bind:value={rankingValue} />
         </div>
     </div>
 
@@ -185,7 +219,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper watchSlidesProgress={true} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="17"
+    <Swiper watchSlidesProgress={true} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -279,9 +313,11 @@
                                     </button>
                                     {#if addReadMore}
                                         <div class="read-more-content">
+                                            <ul>
                                             {#each book.readMoreText as text, index}
-                                                <p>{@html text.value}</p>
+                                                {@html text.value}
                                             {/each}
+                                            </ul>
                                         </div>
                                     {/if}
                                 {/if}
@@ -334,9 +370,64 @@
 
 
         {#each copy["explore"] as id, index}
-            {#each [0,1,2,3,4,5,6,7,8,9] as rankedItem, index}
+            {#each dataRankings as rankedItem, index}
                 <SwiperSlide let:data="{{ isActive }}">
-                    <p>test</p>
+                    {#key filterUpdated}
+                        <div class="swiper-slide-flex">
+                        <div 
+                            class="book-ranked" class:shranked>
+                            <div
+                                class="book"
+                            >
+                                <div
+                                    out:fade={{duration: 100}}
+                                    in:fly={{duration:500, x:-50, delay:250}}
+                                    class="book-inner"
+                                >
+                                    <img class="" src="assets/things.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="title">
+                                <p
+                                    out:fade={{duration: 250}}
+                                    in:fly={{duration:500, x:-50, delay:500}}
+                                    class="title-text">{rankedItem.title}
+                                </p>
+                                <p 
+                                    out:fade={{duration: 250}}
+                                    in:fly={{duration:500, x:-50, delay:750}}
+
+        
+                                    class="author">{rankedItem.author_forenames} {rankedItem.author_keyname}
+                                </p>
+                                <p
+                                    out:fade={{duration: 250}}
+                                    in:fly={{duration:500, x:-50, delay:1000}}
+                                    class="count">appears in 405 syllabi
+                                </p>
+                            </div>
+
+                            <div class="read-more {readMoreVisible ? "readMoreVisible" : ''}">
+                                <button class="read-more-button" on:click={readMore}>
+                                    <ReadMoreHeader />
+                                </button>
+                                <div class="read-more-content">
+                                    {#if rankedItem["awards"].length > 0}
+                                        <ul>
+                                        {#each rankedItem["awards"].split(/\r?\n/) as award}
+                                            <li>{award}</li>
+                                        {/each}
+                                        </ul>
+                                    {/if}
+
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    {/key}
                 </SwiperSlide>
             {/each}
         {/each}
@@ -562,6 +653,7 @@
         justify-content: space-around;
         padding-top: 20px;
         max-width: 500px;
+        padding-bottom: 50px;
     }
 
     .read-more-footer {
@@ -629,9 +721,13 @@
         margin-top: 20px;
     }
 
+    .read-more-content ul {
+        margin-top: 0px;
+    }
+
     .ranking {
         font-size: 36px;
-        color: rgba(0,0,0,.83);
+        color: #999889;
     }
 
     
