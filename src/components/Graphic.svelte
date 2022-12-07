@@ -39,6 +39,14 @@
     let slideLength;
     let baseValue;
     let filterUpdated = 0;
+    
+    function slideNext(){
+        swiper.slideNext();
+    }
+
+    function slidePrevious(){
+        swiper.slidePrev();
+    }
 
     function handleRankChange(event) {
         let activeSlide
@@ -135,7 +143,7 @@
     $: offset = setBookHeight(transform,activeIndex);
     $: todos = readMoreVisible ? todos.filter(d => d.id == "book" || d.id == "read-more") :[{ id: "slide-gap"},{id:"rank"},{id:"book"},{id:"title"},{id:"read-more"}];
 
-
+    
 
     function setBookHeight(trans, active){
         let bookOffset = 100*trans*-1;
@@ -146,11 +154,10 @@
     const readMore = () => {
         console.log("reading more")
         readMoreVisible = !readMoreVisible;
-        filtersHidden = !filtersHidden;
+        //filtersHidden = !filtersHidden;
         bookSmall = !bookSmall;
         shranked = !shranked
-
-        
+        swiper.allowTouchMove = !swiper.allowTouchMove;
 	};
 
     onInit = (e) => {
@@ -197,10 +204,26 @@
 	});
 
 </script>
-<div class="main-swiper" bind:clientHeight={height}>
+<div class="main-swiper {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
     <div class="header-wrapper" style="transform: translate(0,{activeIndex == 0 ? 0 : -100}%)">
         <Header />
     </div>
+    <button class="slide-buttons slide-forward" on:click={slideNext}>
+        <div class="carrot">
+            <svg viewBox="0 0 16 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 25L13 13.5L2 2" stroke="#7E7E7E" stroke-width="2.5"/>
+            </svg>
+        </div>   
+    </button>
+    <button class="slide-buttons slide-backward" on:click={slidePrevious}>
+        <div class="carrot">
+            <svg viewBox="0 0 16 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 25L13 13.5L2 2" stroke="#7E7E7E" stroke-width="2.5"/>
+            </svg>
+        </div>   
+    </button>
+
+    
 
     <div class="header-wrapper filters" class:filtersHidden>
         <div class="filter">
@@ -475,6 +498,7 @@
         width: 100%;
         height: 100px;
         z-index: 100;
+        pointer-events: none;
     }
 
     .chart-rank-scroll-wrapper:before {
@@ -490,6 +514,7 @@
         font-weight: 600;
         font-size: 12px;
         text-transform: uppercase;
+        pointer-events: none;
     }
 
     
@@ -540,6 +565,70 @@
 
     .readMoreVisible {
         transform: translate(0, -100%);
+    }
+
+    .slide-buttons {
+        position: fixed;
+        top: 50%;
+        z-index: 1000000;
+        cursor: pointer;
+        transform: translate(0,-50%);
+        left: 0;
+        right: auto;
+        height: 75px;
+        width: 50px;
+        border: 1px solid rgba(204,204,204,.43);
+        background: #FEFCEE;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 0px 0px 15px 11px rgba(0,0,0,.03);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .slide-buttons:hover {
+        background: white;
+    }
+
+    .opening-color .slide-backward {
+        display: none;
+    }
+
+    .slide-forward {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        
+        left: auto;
+        right: 0;
+    }
+
+    .opening-color .slide-forward {
+        background: white;
+    }
+
+    .slide-buttons .carrot {
+        width: 21px;
+        margin-left: 8px;
+        align-self: center;
+    }
+    .slide-buttons .carrot svg {
+        width: 100%;
+    }
+    .slide-backward .carrot {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+    .slide-backward .carrot svg {
+        transform: rotate(180deg);
+    }
+
+    
+
+    .slide-buttons .carrot svg path {
+        stroke-width: 2px;
     }
 
     .read-more-button {
@@ -596,6 +685,11 @@
         margin: 0 auto;
         transition: height .3s;
         height: 100%;
+    }
+
+    .opening-color {
+        background: #ffefe3;
+        background: white;
     }
 
     .book-inner img {
@@ -726,8 +820,9 @@
     }
 
     .ranking {
-        font-size: 36px;
+        font-size: 24px;
         color: #999889;
+        font-family: 'Inter';
     }
 
     
