@@ -12,9 +12,10 @@
     import { fade, slide, blur, fly } from 'svelte/transition';
     import { flip } from 'svelte/animate';
     import chartRank from "$svg/chart_rank.svg";
+    import flowChart from "$svg/flow.svg";
     import nytRank from "$svg/nyt_rank.svg";
     import rankingData from "$data/data.csv";
-
+    
 
 	import ButtonSet from "$components/helpers/ButtonSet.svelte";
     let buttonValue;
@@ -163,6 +164,7 @@
     onInit = (e) => {
         [swiper] = e.detail;
         console.log(swiper);
+        swiper.keyboard.enable()
         slideLength = e.detail[0].slides.length
     }
 
@@ -205,7 +207,7 @@
 
 </script>
 <div class="main-swiper {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
-    <div class="header-wrapper" style="transform: translate(0,{activeIndex == 0 ? 0 : -100}%)">
+    <div class="header-wrapper" style="transform: translate(0,{activeIndex < copy.intro.length ? 0 : -100}%)">
         <Header />
     </div>
     <button class="slide-buttons slide-forward" on:click={slideNext}>
@@ -250,8 +252,7 @@
                 {@const firstSlide = (index == 0)}
                 {@const secondSlide = (index == 1)}
 
-
-                <div class="exposition-slide {index == 0 ? 'first-slide' : ''}">
+                <div class="exposition-slide {card.center ? "flex-center": "flex-end"} {index == 0 ? 'first-slide' : ''}">
                     <div class="slide-gap"
                         style=""
                     >
@@ -351,7 +352,7 @@
                     </div>
 
                 {:else}
-                    <div class="exposition-slide {book.id}">
+                    <div class="exposition-slide {book.center ? "flex-center": "flex-end"} {book.id}">
                         <div class="slide-gap">
                         </div>
                         <div class="slide-content">
@@ -363,6 +364,14 @@
                                     {@html chartRank}
                                 </div>
                             {/if}
+                            {#if book.rank == "2c"}
+                                <div class="chart-rank-wrapper">
+                                    {@html flowChart}
+                                </div>
+                            {/if}
+
+
+                            
                             {#if book.rank == "4a"}
                                 <div class="chart-rank-scroll-wrapper">
                                     <div class="chart-rank-wrapper chart-rank-wrapper-full">
@@ -472,8 +481,11 @@
     }
 
     .chart-rank-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
         max-width: 350px;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .chart-rank-scroll-wrapper {
@@ -523,7 +535,7 @@
         max-width: 500px;
         margin: 0 auto;
         margin-top: 100px;
-        margin-bottom: 35px;
+        margin-bottom: 0;
     }
 
     .ranking {
@@ -646,15 +658,20 @@
     }
 
     .exposition-slide {
-        height: 100%;
+        height: calc(100% - 30px);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
     }
 
     .exposition-slide .slide-content {
         max-width: 500px;
         margin: 0 auto;
+        flex-basis: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
 
@@ -725,6 +742,7 @@
 
     .slide-gap {
         height: 200px;
+        height: 0;
     }
 
     .book-ranked .slide-gap {
@@ -825,6 +843,14 @@
         font-family: 'Inter';
     }
 
+    .flex-center {
+        justify-content: center;
+    }
+
+
+    .flex-center .slide-content {
+        justify-content: center;
+    }
     
 
     
