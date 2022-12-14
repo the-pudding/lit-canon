@@ -14,6 +14,8 @@
     import chartRank from "$svg/chart_rank.svg";
     import flowChart from "$svg/flow.svg";
     import nytRank from "$svg/nyt_rank.svg";
+    import goodreads from "$svg/goodreads.svg";
+
     import rankingData from "$data/data.csv";
     
 
@@ -22,6 +24,7 @@
 
     SwiperCore.use([Controller, Mousewheel,Pagination,Controller, Keyboard, A11y]);
 	let sliderEl; // component binding
+    let movingBackwards = false;
 	const copy = getContext("copy");
     let onProgress;
     let onInit;
@@ -40,6 +43,8 @@
     let slideLength;
     let baseValue;
     let filterUpdated = 0;
+    let changeDirection;
+    let changeDirectionForwards;
     
     function slideNext(){
         swiper.slideNext();
@@ -185,6 +190,18 @@
             // transform = progress * (copy.intro.length + 5 - 1);
         }
 
+        changeDirection = (e) => {
+            movingBackwards = true;
+            console.log("changing", e)
+        }
+
+        changeDirectionForwards = (e) => {
+            movingBackwards = false;
+            console.log("changing", e)
+        }
+
+        
+
         changedSlideEnd = (e) => {
             const [swiper] = e.detail;
 
@@ -206,7 +223,7 @@
 	});
 
 </script>
-<div class="main-swiper {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
+<div class="main-swiper {movingBackwards ? "moving-backwards" : ''} {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
     <div class="header-wrapper" style="transform: translate(0,{activeIndex < copy.intro.length ? 0 : -100}%)">
         <Header />
     </div>
@@ -244,7 +261,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper watchSlidesProgress={true} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
+    <Swiper watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="15"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -367,6 +384,15 @@
                             {#if book.rank == "2c"}
                                 <div class="chart-rank-wrapper">
                                     {@html flowChart}
+                                </div>
+                                <p>Let&rsquo;s continue on with the rest of the top 10.</p>
+                            {/if}
+
+                            {#if book.rank == "7a"}
+                                <div class="chart-rank-scroll-wrapper">
+                                    <div class="chart-rank-wrapper chart-rank-wrapper-full chart-rank-wrapper-nofull">
+                                        {@html goodreads}
+                                    </div>
                                 </div>
                             {/if}
 
@@ -500,6 +526,12 @@
         padding-bottom: 100px;
     }
 
+    .chart-rank-wrapper-nofull {
+        max-width: 300px;
+        width: 100%;
+        max-height: 350px;
+    }
+
     .chart-rank-scroll-wrapper:after {
         content: '';
         background: linear-gradient(180deg, rgba(255,252,227,0) 0%, #fffce3 75%);
@@ -571,8 +603,10 @@
         flex-grow: 1;
         position: relative;
         transform: translate(0,0);
-        margin-top: 50px;
-        min-height:none;
+        margin-top: 10px;
+        min-height: auto;
+        max-height: 250px;
+        margin-top: auto;
     }
 
     .readMoreVisible {
@@ -658,7 +692,7 @@
     }
 
     .exposition-slide {
-        height: calc(100% - 30px);
+        height: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -672,6 +706,8 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        flex-grow: 1;
+        padding-bottom: 25px;
     }
 
 
@@ -680,6 +716,7 @@
 
     .slide-content p, .book-rank-text p {
         margin-top: 1.5em;
+        margin-left: 0;
     }
 
     .slide-content p:first-of-type, .book-rank-text p:first-of-type {
@@ -688,6 +725,8 @@
 
 
     .tap {
+        margin: 0 auto;
+        width: 100%;
         margin-top: 2rem;
         text-align: center;
     }
@@ -719,11 +758,13 @@
     .book-ranked .book {
         position: relative;
         margin: 0 auto;
-        transition: transform .5s;
+        transition: transform .5s .2s, margin-left .5s .2s;
         height: 1px;
         flex-grow: 1;
         max-height: 500px;
         margin-top: 20px;
+        margin-left: 50%;
+        transform: translate(-50%, 0);
     }
 
     .right-arrow {
@@ -830,7 +871,7 @@
     }
 
     .read-more-content {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .read-more-content ul {

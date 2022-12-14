@@ -166,14 +166,59 @@ li {
 	margin-left: 2rem;
 }
 
-ul {
-	margin-top: 30px;
-}
-
 blockquote {
 	border-left: 2px solid black;
     padding-left: 1em;
 }
 
-.chart-rank-wrapper svg {
+.byline {
+	text-align: left;
 }
+
+#content .swiper-slide-next .book-ranked .book {
+	/* transform: translate(-20%,0); */
+	/* left: 0; */
+	pointer-events: none;
+	/* transition: transform .0s .0s; */
+}
+
+#content .swiper-slide-next {
+	z-index: -1;
+}
+
+.read-more-content .stats-title {
+	margin-left: 32px;
+}
+
+#content .flex-center .slide-content {
+	flex-grow: initial;
+	padding-bottom: 0;
+}
+
+.read-more-content ul {
+	margin-top: 10px;
+}
+
+#content .swiper-slide-prev .book-ranked .book {
+	/* transform: translate(39vw); */
+	pointer-events: none;
+}
+
+#content .moving-backwards .swiper-slide-next .book-ranked .book {
+	/* transform: translate(-50%,0); */
+	/* margin-left: 50vw; */
+	pointer-events: none;
+	/* transition: transform .5s .2s; */
+}
+
+#content .moving-backwards .swiper-slide-prev .book-ranked .book {
+	/* transform: translate(20%,0); */
+	/* left: auto; */
+	/* right: 0; */
+	pointer-events: none;
+	/* transition: transform .0s .0s; */
+}
+
+
+
+
