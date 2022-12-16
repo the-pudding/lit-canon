@@ -178,8 +178,9 @@ blockquote {
 #content .swiper-slide-next .book-ranked .book {
 	/* transform: translate(-20%,0); */
 	/* left: 0; */
-	pointer-events: none;
-	/* transition: transform .0s .0s; */
+	/* pointer-events: none;
+	margin-left: 10%; */
+	/* transition: margin-left .0s .0s; */
 }
 
 #content .swiper-slide-next {
@@ -193,6 +194,8 @@ blockquote {
 #content .flex-center .slide-content {
 	flex-grow: initial;
 	padding-bottom: 0;
+	margin-bottom: auto;
+	margin-top: auto;
 }
 
 .read-more-content ul {

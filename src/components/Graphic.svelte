@@ -5,10 +5,12 @@
     import { Swiper, SwiperSlide } from 'swiper/svelte';
     import ReadMoreHeader from '$components/ReadMoreHeader.svelte';
     import SwiperCore, {
-        Controller,Mousewheel,Pagination, Keyboard, A11y
+        Controller,Mousewheel,Pagination, Keyboard, A11y, Parallax
     } from 'swiper/core';
     import { getContext } from "svelte";
     import 'swiper/css';
+    import 'swiper/css/parallax';
+
     import { fade, slide, blur, fly } from 'svelte/transition';
     import { flip } from 'svelte/animate';
     import chartRank from "$svg/chart_rank.svg";
@@ -22,9 +24,10 @@
 	import ButtonSet from "$components/helpers/ButtonSet.svelte";
     let buttonValue;
 
-    SwiperCore.use([Controller, Mousewheel,Pagination,Controller, Keyboard, A11y]);
+    SwiperCore.use([Controller, Mousewheel,Pagination,Controller, Keyboard, A11y, Parallax]);
 	let sliderEl; // component binding
     let movingBackwards = false;
+    let w = false;
 	const copy = getContext("copy");
     let onProgress;
     let onInit;
@@ -90,14 +93,27 @@
     let decadeValue = "198";
     let genreValue = "fiction";
     let dataRankings = [];
+    let bookWidth = false;
+
+    let parallaxValue = "50%";
 
     let readMoreExampleTransform;
+
+    let textTransform = 50;
+
+    $: console.log("clientwidth",bookWidth/1.4)
+
+    $: if(w < 700) {
+        parallaxValue = w/2 - (bookWidth/1.4/2)+ 30;
+    } else {
+        parallaxValue = w/2 - (bookWidth/1.4/5);
+    }
 
     $: dataRankings = rankingData.filter(d => {
         return d.decade == decadeValue && d["type"] == genreValue
     }).slice(0,10);
 
-    $: console.log(dataRankings,decadeValue,genreValue)
+    $: testTransform = transform * (slideLength - 1) % 1;
 
     $: transformHide = activeIndex
     //* (slideLength - 1) % 1
@@ -261,7 +277,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
+    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="10"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -270,10 +286,7 @@
                 {@const secondSlide = (index == 1)}
 
                 <div class="exposition-slide {card.center ? "flex-center": "flex-end"} {index == 0 ? 'first-slide' : ''}">
-                    <div class="slide-gap"
-                        style=""
-                    >
-                    </div>
+                    
                     <div class="slide-content">
                         {#each card.text as text, index}
                             <p class="{firstSlide ? 'center' : ''}">{@html text.value}</p>
@@ -324,7 +337,7 @@
                                 delay: 0
                             }}
 
-                            <div class="{todo.id} {readMoreVisible && todo.id == "read-more" ? "readMoreVisible" : ''}" >
+                            <div data-swiper-parallax={todo.id == "book" ? parallaxValue : 'null'} class="{todo.id} {readMoreVisible && todo.id == "read-more" ? "readMoreVisible" : ''}" >
                                 {#if todo.id == "rank"}
                                     {#if +rank !== 1}
                                         <p class="ranking">
@@ -333,17 +346,20 @@
                                     {/if}
                                 {/if}
                                 {#if todo.id == "book"}
-                                    <div class="book-inner">
-                                        {#if book.img}
-                                            <img src="assets/{book.img}" alt="">
-                                        {:else}
-                                            <img src="assets/things.png" alt="">
-                                        {/if}
+                                    <div bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
+                                        <div style="background-image:url(assets/{book.img});" class="book-inner">
+                                            <!-- {#if book.img}
+                                                <img src="assets/{book.img}" alt="">
+                                            {:else}
+                                                <img src="assets/things.png" alt="">
+                                            {/if} -->
+                                        </div>
                                     </div>
+
                                 {/if}
 
                                 {#if todo.id == "title"}
-                                    <p class="title-text">{book.title}</p>
+                                    <p class="title-text">{@html book.title}</p>
                                     <p class="author">{book.author}</p>
                                     <p class="count">appears in {book.count} syllabi</p>
                                 {/if}
@@ -450,7 +466,7 @@
                                 <p
                                     out:fade={{duration: 250}}
                                     in:fly={{duration:500, x:-50, delay:500}}
-                                    class="title-text">{rankedItem.title}
+                                    class="title-text"><i>{rankedItem.title}</i> ({rankedItem.year_y})
                                 </p>
                                 <p 
                                     out:fade={{duration: 250}}
@@ -702,12 +718,12 @@
     .exposition-slide .slide-content {
         max-width: 500px;
         margin: 0 auto;
-        flex-basis: 400px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         flex-grow: 1;
         padding-bottom: 25px;
+        padding-top: 0;
     }
 
 
@@ -737,10 +753,17 @@
 
 
     .book-inner {
-        width: auto;
-        margin: 0 auto;
+        /* width: auto; */
+        /* margin: 0 auto; */
         transition: height .3s;
+        /* height: 100%; */
+        max-height: 500px;
         height: 100%;
+        position: relative;
+        /* background: url(assets/god.png); */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .opening-color {
@@ -756,15 +779,15 @@
     }
 
     .book-ranked .book {
-        position: relative;
-        margin: 0 auto;
-        transition: transform .5s .2s, margin-left .5s .2s;
         height: 1px;
         flex-grow: 1;
         max-height: 500px;
-        margin-top: 20px;
-        margin-left: 50%;
-        transform: translate(-50%, 0);
+    }
+
+    .book-ranked .book-outer {
+        position: relative;
+        margin: 0 auto;
+        height: 100%;
     }
 
     .right-arrow {
@@ -779,11 +802,6 @@
         flex-grow: 1;
         height: 1px;
         justify-content: center;
-    }
-
-    .slide-gap {
-        height: 200px;
-        height: 0;
     }
 
     .book-ranked .slide-gap {
@@ -829,7 +847,6 @@
 
     .title-text {
         font-size: 18px;
-        font-style: italic;
         -webkit-font-smoothing: auto;
     }
 
@@ -851,12 +868,14 @@
         font-size: 20px;
     }
     .img-random {
-        margin-top: 30px;
+        max-height: 400px;
         height: 1px;
         flex-grow: 1;
-        transform: translate(0,100px) rotate(0deg);
+        transform: translate(0,50px) rotate(-1deg);
         transition: transform .5s;
+        margin-top: auto;
     }
+
     .img-random img{
         height: 100%;
         width: auto;
