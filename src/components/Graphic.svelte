@@ -277,7 +277,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="10"
+    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="25"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -447,19 +447,18 @@
             {#each dataRankings as rankedItem, index}
                 <SwiperSlide let:data="{{ isActive }}">
                     {#key filterUpdated}
-                        <div class="swiper-slide-flex">
+                        <div class="swiper-slide-flex explore-slide">
                         <div 
                             class="book-ranked" class:shranked>
-                            <div
-                                class="book"
-                            >
-                                <div
-                                    out:fade={{duration: 100}}
-                                    in:fly={{duration:500, x:-50, delay:250}}
-                                    class="book-inner"
-                                >
-                                    <img class="" src="assets/things.png" alt="">
-                                </div>
+
+
+                            <div bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
+                                    <div 
+                                        out:fade={{duration: 100}}
+                                        in:fly={{duration:500, x:-50, delay:250}}
+                                        style="background-image:url(assets/things.png);" class="book-inner"
+                                    >
+                                    </div>
                             </div>
 
                             <div class="title">
@@ -612,6 +611,7 @@
         left: 0;
         right: 0;
         min-height:50vh;
+        transition: transform .2s;
     }
 
     .read-more-example {
@@ -910,6 +910,17 @@
 
     .flex-center .slide-content {
         justify-content: center;
+    }
+    .explore-slide .book-outer {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .explore-slide .book-outer .book-inner {
+        margin-top: 100px;
+        max-height: none;
+
     }
     
 
