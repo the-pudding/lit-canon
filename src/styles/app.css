@@ -200,6 +200,12 @@ blockquote {
 
 .read-more-content ul {
 	margin-top: 10px;
+	padding-left: 0;
+}
+
+.read-more-content li {
+	font-size: 20px;
+	-webkit-font-smoothing: antialiased;
 }
 
 #content .swiper-slide-prev .book-ranked .book {

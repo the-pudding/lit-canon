@@ -277,7 +277,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="25"
+    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -398,7 +398,7 @@
                                 </div>
                             {/if}
                             {#if book.rank == "2c"}
-                                <div class="chart-rank-wrapper">
+                                <div class="chart-rank-wrapper flow-chart">
                                     {@html flowChart}
                                 </div>
                                 <p>Let&rsquo;s continue on with the rest of the top 10.</p>
@@ -452,7 +452,7 @@
                             class="book-ranked" class:shranked>
 
 
-                            <div bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
+                            <div data-swiper-parallax="" bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
                                     <div 
                                         out:fade={{duration: 100}}
                                         in:fly={{duration:500, x:-50, delay:250}}
@@ -871,7 +871,7 @@
         max-height: 400px;
         height: 1px;
         flex-grow: 1;
-        transform: translate(0,50px) rotate(-1deg);
+        transform: translate(0,50px) rotate(0deg);
         transition: transform .5s;
         margin-top: auto;
     }
@@ -923,6 +923,15 @@
 
     }
     
+    .first-book .book-inner {
+        height: calc(100% - 50px);
+        margin-top: 30px;
+    }
+
+    .flow-chart {
+        max-width: 240px;
+        display: none;
+    }
 
     
 
