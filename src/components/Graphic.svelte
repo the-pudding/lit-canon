@@ -960,6 +960,10 @@
         .header-wrapper {
             transition: none;
         }
+
+        .opening-color {
+            background: var(--color-bg, white);
+        }
 	}
 
     .readMoreVisible {
