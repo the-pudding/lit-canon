@@ -305,7 +305,7 @@
                         {/if}
                     </div>
                     {#if card.img}
-                        <div class="img-random" class:popFirst="{popFirst && secondSlide}">
+                        <div data-swiper-parallax="55%" class="img-random" class:popFirst="{popFirst && secondSlide}">
                             <img src="assets/{card.img}" alt="">
                         </div>
                     {/if}
@@ -963,9 +963,6 @@
 
         .opening-color {
             background: var(--color-bg, white);
-        }
-        .img-random {
-            display: none;
         }
 	}
 
