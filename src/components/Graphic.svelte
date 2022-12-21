@@ -964,6 +964,9 @@
         .opening-color {
             background: var(--color-bg, white);
         }
+        .img-random {
+            display: none;
+        }
 	}
 
     .readMoreVisible {
