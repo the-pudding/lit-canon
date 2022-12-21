@@ -201,6 +201,7 @@ blockquote {
 .read-more-content ul {
 	margin-top: 10px;
 	padding-left: 0;
+	width: calc(100% - 30px);
 }
 
 .read-more-content li {
@@ -229,5 +230,65 @@ blockquote {
 }
 
 
+@media only screen and (max-width: 600px) {
+	#content .exposition-slide .slide-content {
+		padding-bottom: 10px;
+	}
+	.swiper-slide p, #content .inter {
+		font-size: 18px;
+	}
+	#content .slide-content p, #content .book-rank-text p {
+		margin-top: 1rem;
+	}
+	.read-more-content li {
+		font-size: revert;
+	}
+
+	#content .chart-rank-wrapper-nofull {
+		max-width: none;
+	}
+
+	.read-more-content ul {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-height: 700px) {
+	.hed {
+		font-size: 42px;
+	}
+
+	#content .img-random {
+		max-height: 300px;
+	}
+
+	#content .book-inner {
+		max-height: 400px;
+	}
+
+	#content .read-more-button span {
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0;
+	}
+
+	#content .swiper-slide .count {
+		font-size: 12px;
+	}
+
+	#content .swiper-slide .ranking {
+		font-size: 20px;
+	}
+	
+	#content .book-ranked .book {
+		max-height: 400px;
+	}
+}
+
+@media only screen and (max-height: 600px) {
+	#content .swiper-slide p, #content .inter {
+		font-size: 16px;
+	}
+}
 
 

@@ -28,6 +28,7 @@
 	let sliderEl; // component binding
     let movingBackwards = false;
     let w = false;
+    let viewportHeight = null;
 	const copy = getContext("copy");
     let onProgress;
     let onInit;
@@ -104,7 +105,10 @@
     $: console.log("clientwidth",bookWidth/1.4)
 
     $: if(w < 700) {
-        parallaxValue = w/2 - (bookWidth/1.4/2)+ 30;
+        parallaxValue = 0//w/2 - (bookWidth/1.4/5) - 70;
+    }
+    else if(w < 700) {
+        parallaxValue = w/2 - (bookWidth/1.4/5) - 50;
     } else {
         parallaxValue = w/2 - (bookWidth/1.4/5);
     }
@@ -240,7 +244,7 @@
 
 </script>
 <div class="main-swiper {movingBackwards ? "moving-backwards" : ''} {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
-    <div class="header-wrapper" style="transform: translate(0,{activeIndex < copy.intro.length ? 0 : -100}%)">
+    <div class="header-wrapper {height}" style="transform: translate(0,{height > 1000 ? (activeIndex < copy.intro.length ? 0 : "-100%") : (activeIndex < 1 ? 0 : "-100%")})">
         <Header />
     </div>
     <button class="slide-buttons slide-forward" on:click={slideNext}>
@@ -281,13 +285,11 @@
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
-
                 {@const firstSlide = (index == 0)}
                 {@const secondSlide = (index == 1)}
 
                 <div class="exposition-slide {card.center ? "flex-center": "flex-end"} {index == 0 ? 'first-slide' : ''}">
-                    
-                    <div class="slide-content">
+                    <div bind:clientHeight={card["height"]} class="slide-content">
                         {#each card.text as text, index}
                             <p class="{firstSlide ? 'center' : ''}">{@html text.value}</p>
                         {/each}
@@ -583,6 +585,7 @@
         margin: 0 auto;
         margin-top: 100px;
         margin-bottom: 0;
+        width: calc(100% - 30px);
     }
 
     .ranking {
@@ -625,9 +628,7 @@
         margin-top: auto;
     }
 
-    .readMoreVisible {
-        transform: translate(0, -100%);
-    }
+    
 
     .slide-buttons {
         position: fixed;
@@ -717,6 +718,7 @@
 
     .exposition-slide .slide-content {
         max-width: 500px;
+        width: calc(100% - 30px);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -933,6 +935,35 @@
         display: none;
     }
 
+    @media only screen and (max-width: 600px) {
+
+        .book-rank-text {
+            margin-top: 0;
+        }
+		.slide-buttons {
+			display: none;
+		}
+
+        .read-more-button {
+            padding: .5rem 0rem;
+
+        }
+        .read-more {
+            width: calc(100% - 30px);
+            transform: translate(0,-30px);
+        }
+
+        .read-more-example {
+            max-height: 300px;
+        }
+	}
+
+    .readMoreVisible {
+        transform: translate(0, -100%);
+    }
+
     
+
+
 
 </style>
