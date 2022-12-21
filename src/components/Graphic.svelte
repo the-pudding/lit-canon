@@ -956,6 +956,10 @@
         .read-more-example {
             max-height: 300px;
         }
+
+        .header-wrapper {
+            transition: none;
+        }
 	}
 
     .readMoreVisible {
