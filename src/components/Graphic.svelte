@@ -244,7 +244,7 @@
 
 </script>
 <div class="main-swiper {movingBackwards ? "moving-backwards" : ''} {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
-    <div class="header-wrapper {height}" style="transform: translate(0,{height > 1000 ? (activeIndex < copy.intro.length ? 0 : "-100%") : (activeIndex < 1 ? 0 : "-100%")})">
+    <div class="header-wrapper {height}" style="transform: translate3d(0,{height > 1000 ? (activeIndex < copy.intro.length ? 0 : "-100%") : (activeIndex < 1 ? 0 : "-100%")},0)">
         <Header />
     </div>
     <button class="slide-buttons slide-forward" on:click={slideNext}>
@@ -873,7 +873,7 @@
         max-height: 400px;
         height: 1px;
         flex-grow: 1;
-        transform: translate(0,50px) rotate(0deg);
+        transform: translate3d(0,50px,0) rotate(0deg);
         transition: transform .5s;
         margin-top: auto;
     }

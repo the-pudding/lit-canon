@@ -88,7 +88,7 @@ html, body, main {
 }
 
 #content .popFirst {
-	transform: translate(-55%,100px) rotate(1deg);
+	transform: translate3d(-55%,100px,0) rotate(1deg);
 }
 
 #content {
