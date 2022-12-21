@@ -1,5 +1,6 @@
 work_id,year_y,title,author_keyname,author_forenames,type,count,awards,decade
-283467908983,1990,The Things They Carried,O'Brien,Tim,fiction,2050,,199
+283467908983,1990,The Things They Carried,O'Brien,Tim,fiction,2050,"Pulitzer Prize Finalist
+National Book Critics Circle Award Finalist",199
 85900065093,1987,Beloved,Morrison,Toni,fiction,1836,"Pulitzer Prize winner, 1988",198
 94489582365,1985,Portable Literature,Kirszner,Laurie G.,fiction,1513,,198
 360777511697,2000,Persepolis,Satrapi,Marjane,fiction,1279,,200
@@ -9,7 +10,7 @@ work_id,year_y,title,author_keyname,author_forenames,type,count,awards,decade
 360794508159,1993,Understanding Comics,McCloud,Scott,nonfiction,1155,,199
 360778317646,1983,Cathedral,Carver,Raymond,fiction,1153,,198
 360780601320,1989,Gender Trouble,Butler,Judith,nonfiction,1046,,198
-360778391530,1991,Woman Hollering Creek,Cisneros,Sandra,fiction,891,,199
+360778391530,1991,Woman Hollering Creek,Cisneros,Sandra,fiction,891,"Notable book of the year by The New York Times, the Los Angeles Times, and the San Francisco Chronicle",199
 360779801485,2005,Never Let Me Go,Ishiguro,Kazuo,fiction,877,,200
 111669228141,2008,The Hunger Games,Collins,Suzanne,fiction,873,,200
 609890190348,2008,Is Google Making Us Stupid?,Carr,Nicholas,nonfiction,870,,200
@@ -19,7 +20,8 @@ work_id,year_y,title,author_keyname,author_forenames,type,count,awards,decade
 360778150336,2006,The Road,McCarthy,Cormac,fiction,832,"Pulitzer Prize winner, 2007",200
 197568663898,1997,The God of Small Things,Roy,Arundhati,fiction,801,,199
 360778401548,1995,Bird by Bird,Lamott,Anne,nonfiction,795,,199
-111669233146,1997,Harry Potter and the Philosopher's Stone,Rowling,J. K.,fiction,788,,199
+111669233146,1997,Harry Potter and the Philosopher's Stone,Rowling,J. K.,fiction,788,"A Publishers Weekly Best Book of 1998
+New York Public Library 1998 Best Book of the Year",199
 283467909123,1999,Interpreter of Maladies,Lahiri,Jhumpa,fiction,773,"PEN America winner, 2000
 Pulitzer Prize winner, 2000",199
 171798836164,1982,The Color Purple,Walker,Alice,fiction,724,"Pulitzer Prize winner, 1983
@@ -27,9 +29,9 @@ National Book Award winner, 1983",198
 360781343459,2007,Absolutely True Diary of a Part-Time Indian,Alexie,Sherman,fiction,694,,200
 360787850352,1989,The Empire Writes Back,Ashcroft,Bill,nonfiction,669,,198
 360779210477,2000,White Teeth,Smith,Zadie,fiction,645,,200
-360778208551,1999,Disgrace,Coetzee,J. M.,fiction,593,,199
+360778208551,1999,Disgrace,Coetzee,J. M.,fiction,593,"The Booker Prize, 1999",199
 360787207190,2003,The Curious Incident of the Dog in the Night-Time,Haddon,Mark,fiction,577,,200
-283467909239,1993,The Giver,Lowry,Lois,fiction,575,,199
+283467909239,1993,The Giver,Lowry,Lois,fiction,575,"Newbery Medal, 1994",199
 360778792959,1993,The Black Atlantic,Gilroy,Paul,nonfiction,575,,199
 360780269725,2007,The Brief Wondrous Life of Oscar Wao,Díaz,Junot,fiction,574,"First Novel Prize winner, 2007
 Pulitzer Prize winner, 2008",200
@@ -39,8 +41,10 @@ Pulitzer Prize winner, 2008",200
 360780148380,1988,A Small Place,Kincaid,Jamaica,nonfiction,539,,198
 360785654133,2006,A Theory of Adaptation,Hutcheon,Linda,nonfiction,529,,200
 360777700950,1987,Watchmen,Moore,Alan,fiction,521,,198
-360781437810,1992,Angels in America,Kushner,Tony,fiction,508,,199
-360780896930,1993,Parable of the Sower,Butler,Octavia E.,fiction,505,,199
+360781437810,1992,Angels in America,Kushner,Tony,fiction,508,"Tony Awards Best Play, 1993
+Pulitzer Prize for Drama, 1993",199
+360780896930,1993,Parable of the Sower,Butler,Octavia E.,fiction,505,"New York Times Notable Book of the Year, 1994
+Nebula Awards Best Novel Nomination, 1994",199
 360780915022,2007,The Reluctant Fundamentalist,Hamid,Mohsin,fiction,501,,200
 343597986194,1984,White Noise,DeLillo,Don,fiction,493,"National Book Award winner, 1985",198
 111669249935,1996,Into the Wild,Krakauer,Jon,nonfiction,493,,199
@@ -58,7 +62,8 @@ Pulitzer Prize winner, 2008",200
 51539695570,2001,Life of Pi,Martel,Yann,fiction,440,,200
 360778624744,1981,What We Talk About When We Talk About Love,Carver,Raymond,fiction,418,,198
 360779547868,1985,Oranges Are Not the Only Fruit,Winterson,Jeanette,fiction,409,,198
-300647755272,1993,The Lone Ranger and Tonto Fistfight in Heaven,Alexie,Sherman,fiction,405,,199
+300647755272,1993,The Lone Ranger and Tonto Fistfight in Heaven,Alexie,Sherman,fiction,405,"PEN-Hemingway Best First Book of Fiction Citation Winner, 1993
+Lila Wallace-Reader’s Digest Writers’ Award, 1994",199
 249108144601,1991,"Postmodernism, Or, the Cultural Logic of Late Capitalism",Jameson,Fredric,nonfiction,396,,199
 360778895402,1980,Maus,Spiegelman,Art,nonfiction,390,,198
 360783212414,1985,A Cyborg Manifesto,Haraway,Donna Jeanne,nonfiction,382,,198
