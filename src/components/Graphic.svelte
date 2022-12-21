@@ -305,7 +305,7 @@
                         {/if}
                     </div>
                     {#if card.img}
-                        <div data-swiper-parallax="55%" class="img-random" class:popFirst="{popFirst && secondSlide}">
+                        <div data-swiper-parallax-opacity=".5" data-swiper-parallax-scale=".75" data-swiper-parallax-y="-50" data-swiper-parallax-x="55%" class="img-random" class:popFirst="{popFirst && secondSlide}">
                             <img src="assets/{card.img}" alt="">
                         </div>
                     {/if}
@@ -585,7 +585,7 @@
         margin: 0 auto;
         margin-top: 100px;
         margin-bottom: 0;
-        width: calc(100% - 30px);
+        width: calc(100% - 15px);
     }
 
     .ranking {
@@ -718,7 +718,7 @@
 
     .exposition-slide .slide-content {
         max-width: 500px;
-        width: calc(100% - 30px);
+        width: calc(100% - 15px);
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -949,7 +949,7 @@
 
         }
         .read-more {
-            width: calc(100% - 30px);
+            width: calc(100% - 15px);
             transform: translate(0,-30px);
         }
 
@@ -963,6 +963,10 @@
 
         .opening-color {
             background: var(--color-bg, white);
+        }
+        blockquote {
+            border-left: 2px solid rgba(0,0,0,0.3);
+            padding-left: 5px;
         }
 	}
 

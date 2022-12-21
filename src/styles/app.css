@@ -201,7 +201,7 @@ blockquote {
 .read-more-content ul {
 	margin-top: 10px;
 	padding-left: 0;
-	width: calc(100% - 30px);
+	width: calc(100% - 15px);
 }
 
 .read-more-content li {
@@ -240,16 +240,24 @@ blockquote {
 	#content .slide-content p, #content .book-rank-text p {
 		margin-top: 1rem;
 	}
+
 	.read-more-content li {
 		font-size: revert;
 	}
 
 	#content .chart-rank-wrapper-nofull {
-		max-width: none;
+		max-height: 300px;
+		margin-top: 10px;
 	}
 
 	.read-more-content ul {
 		width: 100%;
+	}
+
+	blockquote {
+		padding-left: 5px;
+		border-color: rgba(0,0,0,.2);
+		border-width: 1.5px;
 	}
 }
 
