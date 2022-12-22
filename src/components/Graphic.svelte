@@ -28,6 +28,7 @@
 	let sliderEl; // component binding
     let movingBackwards = false;
     let w = false;
+    export let viewportWidth
     let viewportHeight = null;
 	const copy = getContext("copy");
     let onProgress;
@@ -102,7 +103,7 @@
 
     let textTransform = 50;
 
-    $: console.log("clientwidth",bookWidth/1.4)
+    $: console.log(viewportWidth,"viewport width")
 
     $: if(w < 700) {
         parallaxValue = 0//w/2 - (bookWidth/1.4/5) - 70;
@@ -143,7 +144,7 @@
     } else {
         popFirst = false;
     }
-
+    
     $: if(activeIndex < (copy.intro.length + copy.ranking.length)){
         filtersHidden = true;
     } else {
@@ -191,6 +192,7 @@
         console.log(swiper);
         swiper.keyboard.enable()
         slideLength = e.detail[0].slides.length
+        console.log(slideLength)
     }
 
 
@@ -212,12 +214,10 @@
 
         changeDirection = (e) => {
             movingBackwards = true;
-            console.log("changing", e)
         }
 
         changeDirectionForwards = (e) => {
             movingBackwards = false;
-            console.log("changing", e)
         }
 
         
@@ -305,7 +305,7 @@
                         {/if}
                     </div>
                     {#if card.img}
-                        <div data-swiper-parallax-opacity=".5" data-swiper-parallax-scale=".75" data-swiper-parallax-y="-50" data-swiper-parallax-x="55%" class="img-random" class:popFirst="{popFirst && secondSlide}">
+                        <div data-swiper-parallax-opacity="{viewportWidth < 700 ? .5 : 1}" data-swiper-parallax-scale="{w < 700 ? .75 : 1}" data-swiper-parallax-y="-25" data-swiper-parallax-x="55%" class="img-random" class:popFirst="{popFirst && secondSlide}">
                             <img src="assets/{card.img}" alt="">
                         </div>
                     {/if}
@@ -515,6 +515,10 @@
 </div>
 
 <style>
+    
+    .main-swiper {
+        width: 100%;
+    }
     
     .main-swiper .swiper {
     }
