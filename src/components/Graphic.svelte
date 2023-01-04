@@ -281,7 +281,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
+    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="25"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -454,11 +454,11 @@
                             class="book-ranked" class:shranked>
 
 
-                            <div data-swiper-parallax="" bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
+                            <div data-swiper-parallax={parallaxValue}  bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
                                     <div 
                                         out:fade={{duration: 100}}
                                         in:fly={{duration:500, x:-50, delay:250}}
-                                        style="background-image:url(assets/things.png);" class="book-inner"
+                                        style="background-image:url(assets/{rankedItem.image}.png);" class="book-inner"
                                     >
                                     </div>
                             </div>
