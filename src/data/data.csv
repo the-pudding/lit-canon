@@ -1,153 +1,268 @@
-work_id,year_y,title,author_keyname,author_forenames,image,type,count,awards,decade
-283467908983,1990,The Things They Carried,O'Brien,Tim,things,fiction,2050,"Pulitzer Prize Finalist
+work_id,year_y,title,author_forenames,author_keyname,image,type,count,awards,decade
+283467908983,1990,The Things They Carried,Tim,O'Brien,things,fiction,2050,"Never charted as a New York Times Best Seller
+#5,403 most frequently rated book on Goodreads
+Pulitzer Prize Finalist
 National Book Critics Circle Award Finalist",199
-85900065093,1987,Beloved,Morrison,Toni,beloved,fiction,1836,"Pulitzer Prize winner, 1988
+85900065093,1987,Beloved,Toni,Morrison,beloved,fiction,1836,"31 weeks as a New York Times Best Seller (the 45th longest-streak of the 1980s)
+#4,420 most frequently rated book on Goodreads
+Pulitzer Prize winner, 1988
 Anisfield-Wolf Book Award, 1988",198
-360777511697,2000,Persepolis,Satrapi,Marjane,persepolis,fiction,1279,"Alex Award, 2004
+360777511697,2000,Persepolis,Marjane,Satrapi,persepolis,fiction,1279,"Never charted as a New York Times Best Seller
+#8,516 most frequently rated book on Goodreads
+Alex Award, 2004
 Harvey Award, 2004
 Peter Pan Award, 2005",200
-360777678955,1985,The Handmaid's Tale,Atwood,Margaret,handmaid,fiction,1255,"Governor General's Award for English-language fiction Winner, 1985
+360777678955,1985,The Handmaid's Tale,Margaret,Atwood,handmaid,fiction,1255,"14 weeks as a New York Times Best Seller
+#913 most frequently rated book on Goodreads
+Governor General's Award for English-language fiction Winner, 1985
 Booker Prize Nomination, 1986
 Nebula Award Nomination, 1986
 Los Angeles Times Book Prize for Fiction Winner, 1986
 Arthur C. Clarke Award Winner, 1986
 Prometheus Award Nomination, 1986",198
-360778101082,2006,Fun Home,Bechdel,Alison,,nonfiction,1233,,200
-360779934082,1984,The House on Mango Street,Cisneros,Sandra,house,fiction,1208,"The American Book Awards, 1985",198
-360794508159,1993,Understanding Comics,McCloud,Scott,,nonfiction,1155,"Eisner Award Best Comics-Related Book, 1994
+360778101082,2006,Fun Home,Alison,Bechdel,,nonfiction,1233,"Never charted as a New York Times Best Seller
+#9,590 most frequently rated book on Goodreads
+ALA Stonewall Book Award Winner, 2007
+Eisner Award Best Reality-Based Work, 2007
+New York Times Notable Book of the Year, 2006
+National Book Critics Circle Award finalist, 2006
+Harvey Award Nominee Graphic Album of Original Work, 2007
+Ignatz Award nominee Outstanding Graphic Novel, 2006
+Salon Book Award, 2006",200
+360779934082,1984,The House on Mango Street,Sandra,Cisneros,house,fiction,1208,"Never charted as a New York Times Best Seller
+#10,059 most frequently rated book on Goodreads
+The American Book Awards, 1985",198
+360794508159,1993,Understanding Comics,Scott,McCloud,,nonfiction,1155,"Never charted as a New York Times Best Seller
+#11,527 most frequently rated book on Goodreads
+Eisner Award Best Comics-Related Book, 1994
 Harvey Award, Graphic Album of Original Work, 1994
 Squiddy Award Graphic Novel, 1993
 Hugo Nominee Non-Fiction, 1994",199
-360778317646,1983,Cathedral,Carver,Raymond,cathedral,fiction,1153,"Book Critics Circle Award nomination, 1983
+360778317646,1983,Cathedral,Raymond,Carver,cathedral,fiction,1153,"Never charted as a New York Times Best Seller
+#27,939 most frequently rated book on Goodreads
+Book Critics Circle Award nomination, 1983
 O. Henry Award, 1983
 Pulitzer Prize for Fiction Nomination, 1985",198
-360780601320,1989,Gender Trouble,Butler,Judith,,nonfiction,1046,_,198
-360778391530,1991,Woman Hollering Creek,Cisneros,Sandra,woman,fiction,891,"Notable book of the year by The New York Times, the Los Angeles Times, and the San Francisco Chronicle",199
-360779801485,2005,Never Let Me Go,Ishiguro,Kazuo,never,fiction,877,"Booker Prize Shortlist, 2005
+360780601320,1989,Gender Trouble,Judith,Butler,,nonfiction,1046,"Never charted as a New York Times Best Seller
+#45,602 most frequently rated book on Goodreads",198
+360778391530,1991,Woman Hollering Creek,Sandra,Cisneros,woman,fiction,891,"Never charted as a New York Times Best Seller
+#52,311 most frequently rated book on Goodreads
+Notable book of the year by The New York Times, the Los Angeles Times, and the San Francisco Chronicle",199
+360779801485,2005,Never Let Me Go,Kazuo,Ishiguro,never,fiction,877,"Never charted as a New York Times Best Seller
+#3,175 most frequently rated book on Goodreads
+Booker Prize Shortlist, 2005
 Arthur C. Clarke Award Shortlist, 2006
 National Book Critics Circle Award Finalist, 2005
 ALA Alex Award, 2006",200
-111669228141,2008,The Hunger Games,Collins,Suzanne,hunger,fiction,873,"ALA Best Books for Young Adults, 2009
+111669228141,2008,The Hunger Games,Suzanne,Collins,hunger,fiction,873,"Never charted as a New York Times Best Seller
+#48 most frequently rated book on Goodreads
+ALA Best Books for Young Adults, 2009
 Cybils Award, 2008",200
-609890190348,2008,Is Google Making Us Stupid?,Carr,Nicholas,,nonfiction,870,,200
-360778659362,1990,Mother Tongue,Tan,Amy,,nonfiction,869,_,199
-360777372070,1987,Borderlands,Anzaldúa,Gloria,,nonfiction,851,_,198
-360779312897,1993,Culture and Imperialism,Said,Edward W.,,nonfiction,846,"Lionel Trilling Book Award, 1994",199
-360778150336,2006,The Road,McCarthy,Cormac,road,fiction,832,"Pulitzer Prize winner, 2007
+609890190348,2008,Is Google Making Us Stupid?,Nicholas,Carr,,nonfiction,870,,200
+360778659362,1990,Mother Tongue,Amy,Tan,,nonfiction,869,,199
+360777372070,1987,Borderlands,Gloria,Anzaldúa,,nonfiction,851,"Never charted as a New York Times Best Seller
+#51,609 most frequently rated book on Goodreads",198
+360779312897,1993,Culture and Imperialism,Edward W.,Said,,nonfiction,846,"Never charted as a New York Times Best Seller
+#74,882 most frequently rated book on Goodreads
+Lionel Trilling Book Award, 1994",199
+360778150336,2006,The Road,Cormac,McCarthy,road,fiction,832,"6 weeks as a New York Times Best Seller
+#2,014 most frequently rated book on Goodreads
+Pulitzer Prize winner, 2007
 James Tait Black, 2006
 Memorial Prize for Fiction, 2006
 Believer Book Award, 2006
 National Book Critics Circle Award Finalist, 2006",200
-197568663898,1997,The God of Small Things,Roy,Arundhati,god,fiction,801,"Booker Prize, 1997",199
-360778401548,1995,Bird by Bird,Lamott,Anne,,nonfiction,795,_,199
-111669233146,1997,Harry Potter and the Philosopher's Stone,Rowling,J. K.,harry,fiction,788,"A Publishers Weekly Best Book of 1998
+197568663898,1997,The God of Small Things,Arundhati,Roy,god,fiction,801,"31 weeks as a New York Times Best Seller
+19th-longest streak as a Best Seller in the 1990s
+#5,696 most-frequently rated book on Goodreads
+Booker Prize, 1997",199
+360778401548,1995,Bird by Bird,Anne,Lamott,,nonfiction,795,"Never charted as a New York Times Best Seller
+#14,484 most frequently rated book on Goodreads",199
+111669233146,1997,Harry Potter and the Philosopher's Stone,J. K.,Rowling,harry,fiction,788,"77 weeks as a New York Times Best Seller
+10th-longest streak as a Best Seller in the 1990s
+#1 most-frequently rated book on Goodreads
+A Publishers Weekly Best Book of 1998
 New York Public Library 1998 Best Book of the Year",199
-283467909123,1999,Interpreter of Maladies,Lahiri,Jhumpa,interpreter,fiction,773,"PEN America winner, 2000
+283467909123,1999,Interpreter of Maladies,Jhumpa,Lahiri,interpreter,fiction,773,"Never charted as a New York Times Best Seller
+#8,519 most-frequently rated book on Goodreads
+PEN America winner, 2000
 Pulitzer Prize winner, 2000",199
-171798836164,1982,The Color Purple,Walker,Alice,color,fiction,724,"Pulitzer Prize winner, 1983
+171798836164,1982,The Color Purple,Alice,Walker,color,fiction,724,"3 weeks as a New York Times Best Seller
+#2,899 most frequently rated book on Goodreads
+Pulitzer Prize winner, 1983
 National Book Award winner, 1983",198
-360781343459,2007,Absolutely True Diary of a Part-Time Indian,Alexie,Sherman,absolutely,fiction,694,"National Book Award for Young People's Literature, 2007
+360781343459,2007,Absolutely True Diary of a Part-Time Indian,Sherman,Alexie,absolutely,fiction,694,"Never charted as a New York Times Best Seller
+#29,952 most frequently rated book on Goodreads
+National Book Award for Young People's Literature, 2007
 American Library Association's Best Books for Young Adults, 2008
 Boston Globe-Horn Book Award, Fiction and Poetry, 2008
 Odyssey Award",200
-360787850352,1989,The Empire Writes Back,Ashcroft,Bill,,nonfiction,669,_,198
-360779210477,2000,White Teeth,Smith,Zadie,teeth,fiction,645,"James Tait Black Memorial Prize, 2000
+360787850352,1989,The Empire Writes Back,Bill,Ashcroft,,nonfiction,669,"Never charted as a New York Times Best Seller
+#192,814 most frequently rated book on Goodreads",198
+360779210477,2000,White Teeth,Zadie,Smith,teeth,fiction,645,"3 weeks as a New York Times Best Seller
+#9,982 most frequently rated book on Goodreads
+James Tait Black Memorial Prize, 2000
 Whitbread Book Award best first novel, 2000
 The Guardian First Book Award
 The Commonwealth Writers First Book Prize
 The Betty Trask Award",200
-360778208551,1999,Disgrace,Coetzee,J. M.,disgrace,fiction,593,"The Booker Prize, 1999",199
-360787207190,2003,The Curious Incident of the Dog in the Night-Time,Haddon,Mark,curious,fiction,577,"Art Seidenbaum Award for First Fiction, 2003
+360778208551,1999,Disgrace,J. M.,Coetzee,disgrace,fiction,593,"Never charted as a New York Times Best Seller
+#12,988 most-frequently rated book on Goodreads
+The Booker Prize, 1999",199
+360787207190,2003,The Curious Incident of the Dog in the Night-Time,Mark,Haddon,curious,fiction,577,"8 weeks as a New York Times Best Seller
+#1,155 most frequently rated book on Goodreads
+Art Seidenbaum Award for First Fiction, 2003
 Book Trust Teenage Fiction Award, 2003
 Booker Prize longlist, 2003
 Guardian Children's Fiction Prize, 2003
 Whitbread Book of the Year, 2003
 Alex Awards, 2004
 Boeke Prize, 2004",200
-283467909239,1993,The Giver,Lowry,Lois,giver,fiction,575,"Newbery Medal, 1994",199
-360778792959,1993,The Black Atlantic,Gilroy,Paul,,nonfiction,575,"American Book Award, 1994",199
-360780269725,2007,The Brief Wondrous Life of Oscar Wao,Díaz,Junot,brief,fiction,574,"First Novel Prize winner, 2007
+283467909239,1993,The Giver,Lois,Lowry,giver,fiction,575,"Never charted as a New York Times Best Seller
+#763 most-frequently rated book on Goodreads
+Newbery Medal, 1994",199
+360778792959,1993,The Black Atlantic,Paul,Gilroy,,nonfiction,575,"Never charted as a New York Times Best Seller
+#140,736 most frequently rated book on Goodreads
+American Book Award, 1994",199
+360780269725,2007,The Brief Wondrous Life of Oscar Wao,Junot,Díaz,brief,fiction,574,"5 weeks as a New York Times Best Seller
+#6,053 most frequently rated book on Goodreads
+First Novel Prize winner, 2007
 Pulitzer Prize winner, 2008",200
-360777926119,1984,Neuromancer,Gibson,William,neuromancer,fiction,567,"Nebula Award for Best Novel, 1985
+360777926119,1984,Neuromancer,William,Gibson,neuromancer,fiction,567,"Never charted as a New York Times Best Seller
+#5,377 most frequently rated book on Goodreads
+Nebula Award for Best Novel, 1985
 Philip K. Dick Award, 1984
 Hugo Award for Best Novel, 1985",198
-360782784219,1992,Playing in the Dark,Morrison,Toni,,nonfiction,562,_,199
-360789704432,1994,The Location of Culture,Bhabha,Homi K.,,nonfiction,559,_,199
-360780148380,1988,A Small Place,Kincaid,Jamaica,,nonfiction,539,_,198
-360785654133,2006,A Theory of Adaptation,Hutcheon,Linda,,nonfiction,529,,200
-360777700950,1987,Watchmen,Moore,Alan,watchmen,fiction,521,"Hugo Award for Other Forms, 1987
+360782784219,1992,Playing in the Dark,Toni,Morrison,,nonfiction,562,"6 weeks as a New York Times Best Seller
+#74,171 most frequently rated book on Goodreads",199
+360789704432,1994,The Location of Culture,Homi K.,Bhabha,,nonfiction,559,"Never charted as a New York Times Best Seller
+#107,793 most frequently rated book on Goodreads",199
+360780148380,1988,A Small Place,Jamaica,Kincaid,,nonfiction,539,"Never charted as a New York Times Best Seller
+#53,105 most frequently rated book on Goodreads",198
+360785654133,2006,A Theory of Adaptation,Linda,Hutcheon,,nonfiction,529,"Never charted as a New York Times Best Seller
+#199,861 most frequently rated book on Goodreads",200
+360777700950,1987,Watchmen,Alan,Moore,watchmen,fiction,521,"Never charted as a New York Times Best Seller
+#3,043 most frequently rated book on Goodreads
+Hugo Award for Other Forms, 1987
 Harvey Award for Best Writer, 1988
 Eisner Award for Best Writer, 1988",198
-360781437810,1992,Angels in America,Kushner,Tony,angels,fiction,508,"Tony Awards Best Play, 1993
+360781437810,1992,Angels in America,Tony,Kushner,angels,fiction,508,"Never charted as a New York Times Best Seller
+#38,931 most-frequently rated book on Goodreads
+Tony Awards Best Play, 1993
 Pulitzer Prize for Drama, 1993",199
-360780896930,1993,Parable of the Sower,Butler,Octavia E.,parable,fiction,505,"New York Times Notable Book of the Year, 1994
+360780896930,1993,Parable of the Sower,Octavia E.,Butler,parable,fiction,505,"Never charted as a New York Times Best Seller when published
+#16,524 most-frequently rated book on Goodreads
+New York Times Notable Book of the Year, 1994
 Nebula Awards Best Novel Nomination, 1994",199
-360780915022,2007,The Reluctant Fundamentalist,Hamid,Mohsin,reluctant,fiction,501,"Booker Prize shortlist, 2007
+360780915022,2007,The Reluctant Fundamentalist,Mohsin,Hamid,reluctant,fiction,501,"4 weeks as a New York Times Best Seller
+#16,585 most frequently rated book on Goodreads
+Booker Prize shortlist, 2007
 New York Times Notable Book of the Year, 2007
 Anisfield-Wolf Book Award, 2008
 Asian American Literary Award, 2008",200
-343597986194,1984,White Noise,DeLillo,Don,white,fiction,493,"National Book Award winner, 1985",198
-111669249935,1996,Into the Wild,Krakauer,Jon,,nonfiction,493,"Washington State Book Award, 1997",199
-360778068175,2006,American Born Chinese,Yang,Gene Luen,american,fiction,493,"National Book Awards finalist, 2006
+343597986194,1984,White Noise,Don,DeLillo,white,fiction,493,"Never charted as a New York Times Best Seller
+#13,325 most frequently rated book on Goodreads
+National Book Award winner, 1985",198
+111669249935,1996,Into the Wild,Jon,Krakauer,,nonfiction,493,"5 weeks as a New York Times Best Seller
+#1,603 most frequently rated book on Goodreads
+Washington State Book Award, 1997",199
+360778068175,2006,American Born Chinese,Gene Luen,Yang,american,fiction,493,"Never charted as a New York Times Best Seller
+#14,830 most frequently rated book on Goodreads
+National Book Awards finalist, 2006
 Michael L. Printz Award, 2007
 Eisner Award, 2007
 Publishers Weekly Comics Week Best Comic of the Year
 San Francisco Chronicle Best Book of the Year",200
-360777645530,2015,Between the World and Me,Coates,Ta-Nehisi,,nonfiction,492,"PEN America winner, 2016",201
-146029008704,1988,Nervous Conditions,Dangarembga,Tsitsi,nervous,fiction,487,"Commonwealth Writers' Prize, 1989",198
-51539696210,1989,The Joy Luck Club,Tan,Amy,joy,fiction,485,"National Book Finalist winner, 1989
+360777645530,2015,Between the World and Me,Ta-Nehisi,Coates,,nonfiction,492,"PEN America winner, 2016",201
+146029008704,1988,Nervous Conditions,Tsitsi,Dangarembga,nervous,fiction,487,"Never charted as a New York Times Best Seller
+#45,545 most frequently rated book on Goodreads
+Commonwealth Writers' Prize, 1989",198
+51539696210,1989,The Joy Luck Club,Amy,Tan,joy,fiction,485,"35 weeks as a New York Times Best Seller (the 53rd longest-streak of the 1980s)
+#2,612 most frequently rated book on Goodreads
+National Book Finalist winner, 1989
 National Book Critics Circle Award finalist, 1989
 Los Angeles Times Fiction Prize Finalist, 1989",198
-360779415505,2008,Outliers,Gladwell,Malcolm,,nonfiction,476,,200
-360777373025,2003,The Kite Runner,Hosseini,Khaled,,fiction,471,,200
-240518189873,2003,Oryx and Crake,Atwood,Margaret,,fiction,470,,200
-360781912716,2004,Small Island,Levy,Andrea,,fiction,465,,200
-154618847586,1981,Renaissance Self-Fashioning,Greenblatt,Stephen,,nonfiction,460,_,198
-360778196682,1981,Midnight's Children,Rushdie,Salman,,fiction,453,,198
-360783398709,2010,The Immortal Life of Henrietta Lacks,Skloot,Rebecca,,nonfiction,449,,201
-51539695570,2001,Life of Pi,Martel,Yann,,fiction,440,,200
-360778624744,1981,What We Talk About When We Talk About Love,Carver,Raymond,,fiction,418,,198
-360779547868,1985,Oranges Are Not the Only Fruit,Winterson,Jeanette,,fiction,409,,198
-300647755272,1993,The Lone Ranger and Tonto Fistfight in Heaven,Alexie,Sherman,lone,fiction,405,"PEN-Hemingway Best First Book of Fiction Citation Winner, 1993
+360779415505,2008,Outliers,Malcolm,Gladwell,,nonfiction,476,"56 weeks as a New York Times Best Seller (9th longest-streak of non-fiction in the 2000s)
+#2,826 most frequently rated book on Goodreads
+Christian Science Monitor Best Book Nonfiction, 2008",200
+360777373025,2003,The Kite Runner,Khaled,Hosseini,,fiction,471,,200
+240518189873,2003,Oryx and Crake,Margaret,Atwood,,fiction,470,,200
+360781912716,2004,Small Island,Andrea,Levy,,fiction,465,,200
+154618847586,1981,Renaissance Self-Fashioning,Stephen,Greenblatt,,nonfiction,460,"Never charted as a New York Times Best Seller
+#196,756 most frequently rated book on Goodreads",198
+360778196682,1981,Midnight's Children,Salman,Rushdie,,fiction,453,,198
+360783398709,2010,The Immortal Life of Henrietta Lacks,Rebecca,Skloot,,nonfiction,449,,201
+51539695570,2001,Life of Pi,Yann,Martel,,fiction,440,,200
+360778624744,1981,What We Talk About When We Talk About Love,Raymond,Carver,,fiction,418,,198
+360779547868,1985,Oranges Are Not the Only Fruit,Jeanette,Winterson,,fiction,409,,198
+300647755272,1993,The Lone Ranger and Tonto Fistfight in Heaven,Sherman,Alexie,lone,fiction,405,"Never charted as a New York Times Best Seller
+#29,952 most-frequently rated book on Goodreads
+PEN-Hemingway Best First Book of Fiction Citation Winner, 1993
 Lila Wallace-Reader’s Digest Writers’ Award, 1994",199
-249108144601,1991,"Postmodernism, Or, the Cultural Logic of Late Capitalism",Jameson,Fredric,,nonfiction,396,"James Russell Lowell Prize, 1990",199
-360778895402,1980,Maus,Spiegelman,Art,,nonfiction,390,"National Book Critics Circle Award for Biography, 1986
+249108144601,1991,"Postmodernism, Or, the Cultural Logic of Late Capitalism",Fredric,Jameson,,nonfiction,396,"Never charted as a New York Times Best Seller
+#61,165 most frequently rated book on Goodreads
+James Russell Lowell Prize, 1990",199
+360778895402,1980,Maus,Art,Spiegelman,,nonfiction,390,"Never charted as a New York Times Best Seller
+#5,662 most frequently rated book on Goodreads
+National Book Critics Circle Award for Biography, 1986
 National Book Critics Circle Award, 1991
 Pulitzer Special Awards and Citations – Letters, 1992",198
-360783212414,1985,A Cyborg Manifesto,Haraway,Donna Jeanne,,nonfiction,382,_,198
-360780903747,1980,Waiting for the Barbarians,Coetzee,J. M.,,fiction,375,,198
-360779692710,1985,Can the Subaltern Speak?,Spivak,Gayatri Chakravorty,,nonfiction,370,_,198
-360787906966,1993,Bodies That Matter,Butler,Judith,,nonfiction,370,,199
-360793131016,2004,Hunger of Memory,Rodriguez,Richard,,nonfiction,345,,200
-360777510797,1989,The Remains of the Day,Ishiguro,Kazuo,,fiction,341,,198
-360781870072,1984,Love Medicine,Erdrich,Louise,,fiction,321,,198
-292057905024,1982,Orality and Literacy,Ong,Walter J.,,nonfiction,304,_,198
-214748405278,2010,The New Jim Crow,Alexander,Michelle,,nonfiction,280,,201
-51539695849,2001,Nickel and Dimed,Ehrenreich,Barbara,,nonfiction,276,,200
-360800587811,1982,All That Is Solid Melts Into Air,Berman,Marshall,,nonfiction,270,"National Book Critics Circle Award finalist, 1982",198
-360781384293,1997,The Spirit Catches You and You Fall Down,Fadiman,Anne,,nonfiction,257,,199
-154618880881,1987,There Ain't No Black in the Union Jack,Gilroy,Paul,,nonfiction,230,,198
-360799034169,1990,"Simians, Cyborgs, and Women",Haraway,Donna Jeanne,,nonfiction,207,,199
-360780408485,2001,Fast Food Nation,Schlosser,Eric,,nonfiction,204,,200
-163208938004,2003,Regarding the Pain of Others,Sontag,Susan,,nonfiction,203,,200
-360788808287,1995,Imperial Leather,McClintock,Anne,,nonfiction,190,,199
-360790189999,2004,Undoing Gender,Butler,Judith,,nonfiction,180,,200
-360787464701,1996,Modernity at Large,Appadurai,Arjun,,nonfiction,178,,199
-146029009555,1981,Ain't I a Woman,Hooks,Bell,,nonfiction,173,,198
-120259189187,2006,Convergence Culture,Jenkins,Henry,,nonfiction,173,,200
-360788369696,2011,Alone Together,Turkle,Sherry,,nonfiction,146,,201
-360795532434,1992,The Stripping of the Altars,Duffy,Eamon,,nonfiction,145,,199
-360777871751,2014,This Changes Everything,Klein,Naomi,,nonfiction,144,,201
-154618898656,1980,Compulsory Heterosexuality and Lesbian Existence,Rich,Adrienne,,nonfiction,138,,198
-360789838540,1985,Amusing Ourselves to Death,Postman,Neil,,nonfiction,132,,198
-360797037354,1989,The Condition of Postmodernity,Harvey,David,,nonfiction,132,,198
-360792147612,1990,Black Feminist Thought,Hill Collins,Patricia,,nonfiction,131,,199
-360798279157,2001,Language of New Media,Manovich,Lev,,nonfiction,126,,200
-360781370237,1984,The Foucault Reader,Foucault,Michel,,nonfiction,121,,198
-154618899624,1992,City of Dreadful Delight,Walkowitz,Judith R.,,nonfiction,115,,199
-360778230839,2005,A Brief History of Neoliberalism,Harvey,David,,nonfiction,114,,200
-214748405148,1980,A People's History of the United States,Zinn,Howard,,nonfiction,112,,198
-360779480342,2000,Empire,Hardt,Michael,,nonfiction,109,,200
-188978573854,2006,Mindset,Dweck,Carol S.,,nonfiction,109,,200
-360781912473,1993,A Different Mirror,Takaki,Ronald T.,,nonfiction,108,,199
-360785861760,1995,Silencing the Past,Trouillot,Michel-Rolph,,nonfiction,101,,199
+360783212414,1985,A Cyborg Manifesto,Donna Jeanne,Haraway,,nonfiction,382,Never charted as a New York Times Best Seller,198
+360780903747,1980,Waiting for the Barbarians,J. M.,Coetzee,,fiction,375,,198
+360779692710,1985,Can the Subaltern Speak?,Gayatri Chakravorty,Spivak,,nonfiction,370,Never charted as a New York Times Best Seller,198
+360787906966,1993,Bodies That Matter,Judith,Butler,,nonfiction,370,"Never charted as a New York Times Best Seller
+#45,602 most frequently rated book on Goodreads",199
+360793131016,1982,Hunger of Memory,Richard,Rodriguez,,nonfiction,345,"Never charted as a New York Times Best Seller
+#92,022 most frequently rated book on Goodreads
+Anisfield-Wolf Book Award, 1983
+New York Times Notable Book of the Year, 1982",198
+360777510797,1989,The Remains of the Day,Kazuo,Ishiguro,,fiction,341,,198
+360781870072,1984,Love Medicine,Louise,Erdrich,,fiction,321,,198
+292057905024,1982,Orality and Literacy,Walter J.,Ong,,nonfiction,304,"Never charted as a New York Times Best Seller
+#120,442 most frequently rated book on Goodreads",198
+214748405278,2010,The New Jim Crow,Michelle,Alexander,,nonfiction,280,,201
+51539695849,2001,Nickel and Dimed,Barbara,Ehrenreich,,nonfiction,276,"13 weeks as a New York Times Best Seller
+#7,784 most frequently rated book on Goodreads
+Los Angeles Times Book Prize, 2001
+Book Sense Book of the Year Honor Book, 2002
+Alex Award, 2002",200
+360800587811,1982,All That Is Solid Melts Into Air,Marshall,Berman,,nonfiction,270,"Never charted as a New York Times Best Seller
+#102,601 most frequently rated book on Goodreads
+National Book Critics Circle Award finalist, 1982",198
+360781384293,1997,The Spirit Catches You and You Fall Down,Anne,Fadiman,,nonfiction,257,,199
+154618880881,1987,There Ain't No Black in the Union Jack,Paul,Gilroy,,nonfiction,230,"Never charted as a New York Times Best Seller
+#140,736 most frequently rated book on Goodreads",198
+360799034169,1990,"Simians, Cyborgs, and Women",Donna Jeanne,Haraway,,nonfiction,207,,199
+360780408485,2001,Fast Food Nation,Eric,Schlosser,,nonfiction,204,"15 weeks as a New York Times Best Seller
+#7,153 most frequently rated book on Goodreads
+Firecracker Alternative Book Award, 2002
+Book Sense Book of the Year Honor Book, 2002
+Harry Chapin Media Award, 2001",200
+163208938004,2003,Regarding the Pain of Others,Susan,Sontag,,nonfiction,203,"Never charted as a New York Times Best Seller
+#46,791 most frequently rated book on Goodreads
+National Book Critics Circle Award finalist, 2003",200
+360788808287,1995,Imperial Leather,Anne,McClintock,,nonfiction,190,,199
+360790189999,2004,Undoing Gender,Judith,Butler,,nonfiction,180,"Never charted as a New York Times Best Seller
+#100,125 most frequently rated book on Goodreads",200
+360787464701,1996,Modernity at Large,Arjun,Appadurai,,nonfiction,178,,199
+146029009555,1981,Ain't I a Woman,Bell,Hooks,,nonfiction,173,,198
+120259189187,2006,Convergence Culture,Henry,Jenkins,,nonfiction,173,"Never charted as a New York Times Best Seller
+#82,531 most frequently rated book on Goodreads
+Kovacs Book Award, 2007",200
+360788369696,2011,Alone Together,Sherry,Turkle,,nonfiction,146,,201
+360795532434,1992,The Stripping of the Altars,Eamon,Duffy,,nonfiction,145,,199
+360777871751,2014,This Changes Everything,Naomi,Klein,,nonfiction,144,,201
+154618898656,1980,Compulsory Heterosexuality and Lesbian Existence,Adrienne,Rich,,nonfiction,138,,198
+360789838540,1985,Amusing Ourselves to Death,Neil,Postman,,nonfiction,132,,198
+360797037354,1989,The Condition of Postmodernity,David,Harvey,,nonfiction,132,,198
+360792147612,1990,Black Feminist Thought,Patricia,Hill Collins,,nonfiction,131,,199
+360798279157,2001,Language of New Media,Lev,Manovich,,nonfiction,126,"Never charted as a New York Times Best Seller
+#148,633 most frequently rated book on Goodreads",200
+360781370237,1984,The Foucault Reader,Michel,Foucault,,nonfiction,121,,198
+154618899624,1992,City of Dreadful Delight,Judith R.,Walkowitz,,nonfiction,115,,199
+360778230839,2005,A Brief History of Neoliberalism,David,Harvey,,nonfiction,114,,200
+214748405148,1980,A People's History of the United States,Howard,Zinn,,nonfiction,112,,198
+360779480342,2000,Empire,Michael,Hardt,,nonfiction,109,,200
+188978573854,2006,Mindset,Carol S.,Dweck,,nonfiction,109,,200
+360781912473,1993,A Different Mirror,Ronald T.,Takaki,,nonfiction,108,,199
+360785861760,1995,Silencing the Past,Michel-Rolph,Trouillot,,nonfiction,101,,199
