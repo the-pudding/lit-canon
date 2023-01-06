@@ -2,6 +2,8 @@
 
     import { onMount } from "svelte";
     import Header from "$components/Header.svelte"
+    import Footer from "$components/Footer.svelte"
+
     import { Swiper, SwiperSlide } from 'swiper/svelte';
     import ReadMoreHeader from '$components/ReadMoreHeader.svelte';
     import SwiperCore, {
@@ -25,6 +27,7 @@
     let buttonValue;
 
     SwiperCore.use([Controller, Mousewheel,Pagination,Controller, Keyboard, A11y, Parallax]);
+    let mainSwiper;
 	let sliderEl; // component binding
     let movingBackwards = false;
     let w = false;
@@ -50,6 +53,13 @@
     let filterUpdated = 0;
     let changeDirection;
     let changeDirectionForwards;
+    let handling = true;
+    
+    let focused = document.activeElement;
+
+    $: focused = document.activeElement;
+
+    $: console.log("focused", focused)
     
     function slideNext(){
         swiper.slideNext();
@@ -61,13 +71,36 @@
 
     function handleRankChange(event) {
         let activeSlide
-        filterUpdated = filterUpdated + 1;
+        // filterUpdated = filterUpdated + 1;
+        console.log("rank change")
+        let thing = document.getElementsByClassName("swiper-slide-active")
+        let main = document.querySelectorAll('body')
+
+        handling = !handling;
+
+
         swiper.slideTo(baseValue + event.detail.text - 1, 500)
+
+        // use:focusTrap(thing[0], { disable: false })
+
+        window.setTimeout(() => {
+            console.log("set timeout")
+            main[0].focus();
+            console.log(document.activeElement,"hi")
+
+            // swiper.slideTo(baseValue + event.detail.text - 1, 500)
+        },500)
     }
 
     function handleFilterChange(event) {
+        handling = !handling;
+
         filterUpdated = filterUpdated + 1;
-        swiper.slideTo(baseValue, 500)
+        swiper.slideTo(baseValue - 1, 0)
+        window.setTimeout(() => {
+            console.log("set timeout")
+            swiper.slideTo(baseValue, 500)
+        },100)
     }
 
     let decadeOptions = [
@@ -148,7 +181,12 @@
     $: if(activeIndex < (copy.intro.length + copy.ranking.length)){
         filtersHidden = true;
     } else {
-        filtersHidden = false;
+        if(activeIndex > (copy.intro.length + copy.ranking.length + 9)) {
+            filtersHidden = true;
+        }
+        else {
+            filtersHidden = false;
+        }
         baseValue = copy.intro.length + copy.ranking.length;
         let delta = activeIndex - baseValue;
         let slideInRanking = delta % 10;
@@ -225,6 +263,9 @@
         changedSlideEnd = (e) => {
             const [swiper] = e.detail;
 
+            console.log(document.activeElement,"here")
+
+
             activeIndex = swiper.activeIndex;
             if(!filtersHidden) {
                 baseValue = copy.intro.length + copy.ranking.length;
@@ -243,7 +284,7 @@
 	});
 
 </script>
-<div class="main-swiper {movingBackwards ? "moving-backwards" : ''} {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
+<div bind:this={mainSwiper} class="main-swiper {movingBackwards ? "moving-backwards" : ''} {activeIndex == 0 ? 'opening-color' : ''}" bind:clientHeight={height}>
     <div class="header-wrapper {height}" style="transform: translate3d(0,{height > 1000 ? (activeIndex < copy.intro.length ? 0 : "-100%") : (activeIndex < 1 ? 0 : "-100%")},0)">
         <Header />
     </div>
@@ -265,15 +306,17 @@
     
 
     <div class="header-wrapper filters" class:filtersHidden>
-        <div class="filter">
-            <ButtonSet on:message={handleFilterChange} legend={"Decade"} legendPosition={"left"} options={decadeOptions} bind:value={decadeValue} />
-        </div>
-        <div class="filter">
-            <ButtonSet on:message={handleFilterChange} legend={"Genre"} legendPosition={"left"} options={genreOptions} bind:value={genreValue} />
-        </div>
-        <div class="ranking">
-            <ButtonSet on:message={handleRankChange} legend={""} ranking={true} legendPosition={"left"} options={countOptions} bind:value={rankingValue} />
-        </div>
+        {#key handling}
+            <div class="filter">
+                <ButtonSet on:message={handleFilterChange} legend={"Decade"} legendPosition={"left"} options={decadeOptions} bind:value={decadeValue} />
+            </div>
+            <div class="filter">
+                <ButtonSet on:message={handleFilterChange} legend={"Genre"} legendPosition={"left"} options={genreOptions} bind:value={genreValue} />
+            </div>
+            <div class="ranking">
+                <ButtonSet on:message={handleRankChange} legend={""} ranking={true} legendPosition={"left"} options={countOptions} bind:value={rankingValue} />
+            </div>
+        {/key}
     </div>
 
     <!-- <div class="header-wrapper read-more-footer" class:readMoreVisible on:click={readMore}>
@@ -281,7 +324,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
+    <Swiper focusableElements={false} parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="30"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
@@ -479,7 +522,7 @@
                                 <p
                                     out:fade={{duration: 250}}
                                     in:fly={{duration:500, x:-50, delay:1000}}
-                                    class="count">appears in 405 syllabi
+                                    class="count">appears in {rankedItem.count} syllabi
                                 </p>
                             </div>
 
@@ -506,6 +549,57 @@
                 </SwiperSlide>
             {/each}
         {/each}
+
+
+        <SwiperSlide let:data="{{ isActive }}">
+            <div class="exposition-slide flex-center">
+                <div class="slide-content">
+                    <div class="patreon-cta">
+                        <p>Enjoy this project? Consider helping fund us on Patreon.</p>
+                        <a target="_blank" href="https://patreon.com/thepudding" rel="noreferrer">
+                            <button type="button" name="button">Become a Patron</button>
+                        </a>
+
+                        <p class="">You should subscribe to our newsletter too.</p>
+                        <a target="_blank" href="https://thepuddingmail.substack.com/" rel="noreferrer">
+                            <button class="newsletter" type="button" name="button">Subscribe to Newsletter</button>
+                        </a>
+                    </div>
+                    <p class="center">Or follow us on <a target="_blank" href="https://www.instagram.com/the.pudding" rel="noopener">Instagram</a>, <a target="_blank" href="https://twitter.com/puddingviz" rel="noopener">Twitter</a>, <a target="_blank" href="https://www.facebook.com/pudding.viz" rel="noopener">Facebook</a>, and <a href="/feed/index.xml" target="_blank">RSS</a>.</p>
+                </div>
+
+            </div>
+
+        </SwiperSlide>
+
+        <SwiperSlide let:data="{{ isActive }}">
+            <div class="exposition-slide flex-center">
+                <div class="slide-content">
+                    <p>Check out more stories from <a href="/">The Pudding</a>:</p>
+                    <div>
+                        <Footer />
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </SwiperSlide>
+
+        {#each copy["methods"] as slideMethod, index}
+            <SwiperSlide let:data="{{ isActive }}">
+                <div class="swiper-slide-flex">
+                    <div class="exposition-slide flex-center">
+                        <div class="slide-content">
+                            {#each slideMethod.text as text, index}
+                                <p>{@html text.value}</p>
+                            {/each}
+                        </div>
+
+                    </div>
+                </div>
+            </SwiperSlide>
+        {/each}
+
 
 
         
@@ -976,6 +1070,57 @@
 
     .readMoreVisible {
         transform: translate(0, -100%);
+    }
+
+    .patreon-cta {
+        max-width: calc(100% - 2rem);
+        margin: 0 auto;
+    }
+
+    .patreon-cta a {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        text-decoration: none;
+        border: none;
+    }
+
+    .patreon-cta p {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .patreon-cta button {
+        color: #fff;
+        border: none;
+        font-family: 'Inter';
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 auto;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 2px 2px rgba(225,98,89,.36);
+        background-color: #e16259;
+        border: 1px solid #be5643;
+        border-radius: 3px;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        align-self: center;
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .patreon-cta .newsletter {
+        border: 1px solid #4365be;
+        background-color: #5977e1;
+        box-shadow: 0 1px 2px rgba(15,15,15,.15);
+    }
+
+    .slide-content .center {
+        text-align: center;
+        margin: 0 auto;
     }
 
     

@@ -2,6 +2,8 @@
 
 
 	import { createEventDispatcher } from 'svelte';
+	import focusTrap from "$actions/focusTrap.js";
+
 	const dispatch = createEventDispatcher();
 
 
@@ -187,7 +189,7 @@
 		top: -5px;
 		left: 50%;
 		width: 0; 
-		height: 0; 
+		height: 0;
 		border-left: 3px solid transparent;
 		border-right: 3px solid transparent;
 		border-top: 5px solid #AC1919;

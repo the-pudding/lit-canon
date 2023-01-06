@@ -45,19 +45,43 @@
 		{/each}
 	</section>
 
+	<section class="about">
+		<div class="wordmark">
+			{@html wordmark}
+		</div>
+		<p>
+			<a href="https://pudding.cool">The Pudding</a>
+			is a digital publication that explains ideas debated in culture with visual
+			essays.
+		</p>
+	</section>
+
+	<section class="links">
+		<ul>
+			{#each links as link}
+				<li>
+					<a href={link.url}>
+						<span>{link.name.toUpperCase()}</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</section>
 </footer>
 
 <style>
 	footer {
-		margin-top: 2rem;
+		background-color: var(--color-fg);
+		color: var(--color-bg);
+		font-family: var(--sans);
+		padding: 3em 1em;
+		margin-top: 3em;
 	}
 
 	a,
 	a:visited,
 	a:hover {
-		color: #000;
-		border: none;
-		text-decoration: none;
+		color: var(--color-bg);
 	}
 
 	.stories {
@@ -77,7 +101,7 @@
 
 	.story a {
 		display: block;
-		font-size: 18px;
+		font-weight: 700;
 		text-decoration: none;
 	}
 
@@ -122,8 +146,15 @@
 
 	@media only screen and (min-width: 30em) {
 		.story {
-			width: calc(50% - 10px);
+			width: 50%;
+			padding: 0 1em;
 		}
 	}
 
+	@media only screen and (min-width: 50em) {
+		.story {
+			width: 25%;
+			padding: 0 1em;
+		}
+	}
 </style>

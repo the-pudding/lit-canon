@@ -1,8 +1,8 @@
 <script>
-	export let title = "Title TK";
-	export let description = "Description TK";
-	export let url = "https://pudding.cool";
-	export let keywords = "";
+	export let title = "What literature do we study from the 1990s?";
+	export let description = "The turn-of-the-century literary canon, using data from college syllabi";
+	export let url = "https://pudding.cool/lit-canon";
+	export let keywords = "books, syllabi, reading, data";
 	export let preloadFont = [
 		"https://pudding.cool/assets/fonts/inter/Inter-Regular.woff2",
 		"https://pudding.cool/assets/fonts/inter/Inter-Bold.woff2",

@@ -1,6 +1,9 @@
 // params = { disable: false }
 
 export default function focusTrap(node, params) {
+
+	console.log("focus trapping")
+
 	const elements = ["a", "button", "input", "textarea", "select", "details", "[tabindex]:not([tabindex='-1'])"];
 	let firstFocusable;
 	let lastFocusable;

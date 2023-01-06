@@ -229,6 +229,11 @@ blockquote {
 	/* transition: transform .0s .0s; */
 }
 
+.pHed {
+	font-family: 'Inter';
+	font-size: 24px;
+}
+
 
 @media only screen and (max-width: 600px) {
 	#content .exposition-slide .slide-content {
@@ -300,3 +305,6 @@ blockquote {
 }
 
 
+div:focus, input:focus {
+    border: 5px solid red;
+}
