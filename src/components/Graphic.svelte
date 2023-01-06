@@ -12,7 +12,7 @@
     import { getContext } from "svelte";
     import 'swiper/css';
     import 'swiper/css/parallax';
-
+    import focusTrap from "$actions/focusTrap";
     import { fade, slide, blur, fly } from 'svelte/transition';
     import { flip } from 'svelte/animate';
     import chartRank from "$svg/chart_rank.svg";
@@ -77,19 +77,8 @@
         let main = document.querySelectorAll('body')
 
         handling = !handling;
-
-
         swiper.slideTo(baseValue + event.detail.text - 1, 500)
 
-        // use:focusTrap(thing[0], { disable: false })
-
-        window.setTimeout(() => {
-            console.log("set timeout")
-            main[0].focus();
-            console.log(document.activeElement,"hi")
-
-            // swiper.slideTo(baseValue + event.detail.text - 1, 500)
-        },500)
     }
 
     function handleFilterChange(event) {
@@ -263,9 +252,6 @@
         changedSlideEnd = (e) => {
             const [swiper] = e.detail;
 
-            console.log(document.activeElement,"here")
-
-
             activeIndex = swiper.activeIndex;
             if(!filtersHidden) {
                 baseValue = copy.intro.length + copy.ranking.length;
@@ -305,7 +291,7 @@
 
     
 
-    <div class="header-wrapper filters" class:filtersHidden>
+    <div class="header-wrapper filters" use:focusTrap={{disable: false}}  class:filtersHidden>
         {#key handling}
             <div class="filter">
                 <ButtonSet on:message={handleFilterChange} legend={"Decade"} legendPosition={"left"} options={decadeOptions} bind:value={decadeValue} />
