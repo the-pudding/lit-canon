@@ -16,7 +16,7 @@
 	export let disabled = false;
 	export let rankingValue = 0;
 	export let ranking = false;
-	export let value = options.length ? options[0].value : "";
+	export let value;// = options.length ? options[0].value : "";
 
 
 	function sayHello(val) {
@@ -40,15 +40,20 @@
 		value = rankingValue - 1
 	};
 
+
+
 </script>
 
 <div class="button-set" class:ranking>
+	<!-- use:focusTrap={{disable:false}} -->
+
 	<div
 		id={`group-${id}`}
 		class="group"
 		class:is-top={isTop}
 		role="radiogroup"
 		aria-labelledby={`label-${id}`}
+		use:focusTrap={{disable:false}}
 	>
 		{#if legend}<div class="legend" id="legend-{id}">{legend}</div>{/if}
 		<div class="options">
@@ -64,7 +69,7 @@
 						{disabled}
 						bind:group={value}
 					/>
-					<label class="option {labelClass}" for={`${id}-${option.slug}`}>
+					<label tabindex="1" class="option {labelClass}" for={`${id}-${option.slug}`}>
 						{@html option.label || option.value}
 					</label>
 				</div>

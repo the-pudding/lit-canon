@@ -59,7 +59,7 @@
 
     $: focused = document.activeElement;
 
-    $: console.log("focused", focused)
+    $: console.log(handling)
     
     function slideNext(){
         swiper.slideNext();
@@ -75,21 +75,27 @@
         console.log("rank change")
         let thing = document.getElementsByClassName("swiper-slide-active")
         let main = document.querySelectorAll('body')
-
+        
         handling = !handling;
         swiper.slideTo(baseValue + event.detail.text - 1, 500)
 
     }
 
     function handleFilterChange(event) {
-        handling = !handling;
+        // console.log(decadeValue, genreValue,"prehandle")
+        // filterUpdated = filterUpdated + 1;
 
-        filterUpdated = filterUpdated + 1;
-        swiper.slideTo(baseValue - 1, 0)
+        // handling = !handling;
+        // console.log(decadeValue, genreValue)
+
         window.setTimeout(() => {
+            swiper.slideTo(baseValue - 1, 0)
+
             console.log("set timeout")
             swiper.slideTo(baseValue, 500)
-        },100)
+            handling = !handling;
+
+        },500)
     }
 
     let decadeOptions = [
@@ -289,9 +295,12 @@
         </div>   
     </button>
 
-    
+    <!-- class:filtersHidden -->
 
-    <div class="header-wrapper filters" use:focusTrap={{disable: false}}  class:filtersHidden>
+    <div class="header-wrapper filters" 
+        class:filtersHidden
+    
+    >
         {#key handling}
             <div class="filter">
                 <ButtonSet on:message={handleFilterChange} legend={"Decade"} legendPosition={"left"} options={decadeOptions} bind:value={decadeValue} />
@@ -310,7 +319,7 @@
     </div> -->
     <!-- <div class="book" style="transform: translate(0,{offset.book}px)">
     </div> -->
-    <Swiper focusableElements={false} parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="30"
+    <Swiper parallax={true} watchSlidesProgress={true} on:slideNextTransitionStart={changeDirectionForwards} on:slidePrevTransitionStart={changeDirection} on:swiper={onInit} on:progress={onProgress} on:slideChange={changedSlideEnd} on:doubleTap={doubleTap} initialSlide="0"
     >
         {#each copy.intro as card, index}
             <SwiperSlide>
