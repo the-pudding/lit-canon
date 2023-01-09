@@ -220,6 +220,12 @@
         swiper.allowTouchMove = !swiper.allowTouchMove;
 	};
 
+    const readMoreSlide = () => {
+        if(shranked){
+            readMore();
+        }
+    }
+
     onInit = (e) => {
         [swiper] = e.detail;
         console.log(swiper);
@@ -386,7 +392,7 @@
                                     {/if}
                                 {/if}
                                 {#if todo.id == "book"}
-                                    <div bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
+                                    <div bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer" on:click={readMoreSlide}>
                                         <div style="background-image:url(assets/{book.img});" class="book-inner">
                                             <!-- {#if book.img}
                                                 <img src="assets/{book.img}" alt="">
@@ -492,7 +498,7 @@
                             class="book-ranked" class:shranked>
 
 
-                            <div data-swiper-parallax={parallaxValue}  bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
+                            <div on:click={readMoreSlide} data-swiper-parallax={parallaxValue}  bind:clientWidth={w} bind:clientHeight={bookWidth} class="book-outer">
                                     <div 
                                         out:fade={{duration: 100}}
                                         in:fly={{duration:500, x:-50, delay:250}}
