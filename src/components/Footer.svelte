@@ -70,7 +70,7 @@
 
 	.story {
 		display: block;
-		width: 100%;
+		width: calc(50% - 10px);
 		border: none;
 		margin-bottom: 3rem;
 	}
@@ -118,12 +118,6 @@
 
 	.links span {
 		margin-left: 0.5em;
-	}
-
-	@media only screen and (min-width: 30em) {
-		.story {
-			width: calc(50% - 10px);
-		}
 	}
 
 </style>
