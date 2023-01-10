@@ -69,7 +69,7 @@
 						{disabled}
 						bind:group={value}
 					/>
-					<label tabindex="1" class="option {labelClass}" for={`${id}-${option.slug}`}>
+					<label class="option {labelClass}" for={`${id}-${option.slug}`}>
 						{@html option.label || option.value}
 					</label>
 				</div>
@@ -202,16 +202,16 @@
 	}
 
 	input[type="radio"]:hover + label {
-		/* background: var(--color-gray-100); */
+		background: var(--color-gray-100);
 	}
 
 	input[type="radio"]:focus + label {
-		/* box-shadow: 0 0 4px 0 var(--color-focus); */
+		box-shadow: 0 0 4px 0 var(--color-focus);
 	}
 
 	input[type="radio"]:disabled + label {
-		/* color: var(--color-gray-700); */
-		/* background: var(--color-gray-500); */
+		color: var(--color-gray-700);
+		background: var(--color-gray-500);
 		cursor: not-allowed;
 	}
 </style>

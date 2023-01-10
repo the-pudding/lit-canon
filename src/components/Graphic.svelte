@@ -26,8 +26,11 @@
 	import ButtonSet from "$components/helpers/ButtonSet.svelte";
     let buttonValue;
 
+    let testVar;
+
     SwiperCore.use([Controller, Mousewheel,Pagination,Controller, Keyboard, A11y, Parallax]);
     let mainSwiper;
+    let headerElement;
 	let sliderEl; // component binding
     let movingBackwards = false;
     let w = false;
@@ -181,6 +184,7 @@
         }
         else {
             filtersHidden = false;
+            // headerElement.querySelector("input").focus();
         }
         baseValue = copy.intro.length + copy.ranking.length;
         let delta = activeIndex - baseValue;
@@ -303,7 +307,7 @@
 
     <!-- class:filtersHidden -->
 
-    <div class="header-wrapper filters" 
+    <div bind:this={headerElement} class="header-wrapper filters" 
         class:filtersHidden
     
     >

@@ -305,6 +305,6 @@ blockquote {
 }
 
 
-div:focus, input:focus {
-    border: 5px solid red;
+input[type="radio"]:focus + label {
+	box-shadow: 0 0 4px 0 var(#AC1919);
 }
